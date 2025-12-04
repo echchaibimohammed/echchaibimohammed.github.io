@@ -6,6 +6,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
+    html {
+  scroll-behavior: smooth;
+}
+/* Fade-in on scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    /* Hover-lift for project cards */
+.project-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+/* Glowing skill/tech pills */
+@keyframes glowPulse {
+  0%   { box-shadow: 0 0 4px rgba(99,102,241,0.3); }
+  50%  { box-shadow: 0 0 12px rgba(99,102,241,0.7); }
+  100% { box-shadow: 0 0 4px rgba(99,102,241,0.3); }
+}
+
+.skill-pill,
+.tech-item {
+  animation: glowPulse 3s infinite ease-in-out;
+}
+/* Glowing profile picture */
+.hero-photo {
+  animation: photoGlow 4s infinite ease-in-out;
+}
+
+@keyframes photoGlow {
+  0%   { box-shadow: 0 0 10px rgba(99,102,241,0.4); }
+  50%  { box-shadow: 0 0 25px rgba(99,102,241,0.8); }
+  100% { box-shadow: 0 0 10px rgba(99,102,241,0.4); }
+}
+
   /* =========================================
      BASE + THEME
   ========================================== */
@@ -539,7 +587,7 @@
 
 
     <!-- WORK EXPERIENCE TIMELINE -->
-    <section id="work-experience">
+    <section id="work-experience" class="fade-in">
       <div class="experience-card">
         <h2 class="experience-title">Work Experience</h2>
 
@@ -589,9 +637,8 @@
 
 
     <!-- ACADEMIC PROJECTS -->
-    <section id="academic-projects">
+    <section id="academic-projects" class="fade-in">
       <h2>Academic Projects</h2>
-
       <div class="project-card">
         <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
         <p class="project-subtitle">University of Limerick</p>
@@ -699,7 +746,7 @@
 
 
     <!-- SKILLS (2x2 GRID) -->
-    <section id="skills">
+    <section id="skills" class="fade-in">
       <div class="skills-wrapper">
         <h2 class="skills-title">Skills</h2>
 
@@ -793,9 +840,9 @@
     <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>Email: <a href="mailto:your.email@example.com">echchaibimohammed04@gmail.com</a></p>
       <p>GitHub: <a href="https://github.com/your-username">your-username</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/mohammed-ech-chaibi" target="_blank">My LinkedIn Profile</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/mohammed-ech-chaibi-62a1091ab/" target="_blank">My LinkedIn Profile</a></p>
 
     </section>
 
