@@ -157,44 +157,61 @@
 
   .timeline-content ul { margin-top: 10px; }
 
-    /* ====== Skills Section ====== */
+   /* ====== Skills 2x2 Grid Card ====== */
 
-.skills-card {
-  background: linear-gradient(to bottom right, #dff7ff, #ffffff);
-  padding: 25px;
-  border-radius: 20px;
+.skills-wrapper {
+  background: linear-gradient(to bottom right, #eef4ff, #ffffff);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
   margin-bottom: 40px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
 .skills-title {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 20px;
-  color: #003b5c;
+  margin-bottom: 25px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+}
+
+.skills-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .skills-group-title {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #0077b6;
+  color: #003b5c;
 }
 
-.skills-list {
+.skills-pills {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
-.skill-item {
-  background: rgba(255,255,255,0.7);
-  padding: 10px 15px;
+.skill-pill {
+  background: white;
+  padding: 8px 16px;
   border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.12);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  white-space: nowrap;
+}
+
+@media (max-width: 650px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -404,19 +421,71 @@
     </div>
   </div>
 
-</section>
-  <section id="skills">
-  <div class="skills-card">
+<section id="skills">
+  <div class="skills-wrapper">
     <h2 class="skills-title">Skills</h2>
 
-    <h3 class="skills-group-title">Core Automation & PLC Skills</h3>
+    <div class="skills-grid">
 
-    <div class="skills-list">
-      <div class="skill-item">PLC Programming: Ladder Logic</div>
-      <div class="skill-item">Studio 5000 (Allen-Bradley): sequences, interlocks, HMI, I/O</div>
-      <div class="skill-item">URS / FDS / CSS Documentation (GAMP V lifecycle)</div>
-      <div class="skill-item">Recipe Design (ISA-88 concepts)</div>
-      <div class="skill-item">Risk Assessment (ISO 12100)</div>
+      <!-- COLUMN 1 — ROW 1 -->
+      <div class="skills-group">
+        <h3 class="skills-group-title">Core Automation & PLC Skills</h3>
+        <div class="skills-pills">
+          <span class="skill-pill">PLC Programming (Ladder Logic)</span>
+          <span class="skill-pill">Studio 5000 (Allen-Bradley)</span>
+          <span class="skill-pill">Sequences & Interlocks</span>
+          <span class="skill-pill">HMI Development</span>
+          <span class="skill-pill">I/O Configuration</span>
+          <span class="skill-pill">URS / FDS / CSS (GAMP V)</span>
+          <span class="skill-pill">Recipe Design (ISA-88)</span>
+          <span class="skill-pill">Risk Assessment (ISO 12100)</span>
+        </div>
+      </div>
+
+      <!-- COLUMN 2 — ROW 1 -->
+      <div class="skills-group">
+        <h3 class="skills-group-title">Robotics & Mechatronics</h3>
+        <div class="skills-pills">
+          <span class="skill-pill">Mitsubishi Robots (RT Toolbox)</span>
+          <span class="skill-pill">Melfa BASIC</span>
+          <span class="skill-pill">Robot Calibration</span>
+          <span class="skill-pill">Robot Sequence Programming</span>
+          <span class="skill-pill">Robot–PLC Communication</span>
+          <span class="skill-pill">Forward & Inverse Kinematics</span>
+          <span class="skill-pill">Microcontrollers</span>
+          <span class="skill-pill">TCP/IP Communication</span>
+          <span class="skill-pill">Mechanical Design</span>
+        </div>
+      </div>
+
+      <!-- COLUMN 1 — ROW 2 -->
+      <div class="skills-group">
+        <h3 class="skills-group-title">Industrial Engineering & Process Skills</h3>
+        <div class="skills-pills">
+          <span class="skill-pill">Process Mapping</span>
+          <span class="skill-pill">Workflow Analysis</span>
+          <span class="skill-pill">KPI Dashboarding</span>
+          <span class="skill-pill">Industrialization</span>
+          <span class="skill-pill">Sequence Definition</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">C / C++</span>
+          <span class="skill-pill">MATLAB</span>
+          <span class="skill-pill">Git</span>
+        </div>
+      </div>
+
+      <!-- COLUMN 2 — ROW 2 -->
+      <div class="skills-group">
+        <h3 class="skills-group-title">Soft Skills</h3>
+        <div class="skills-pills">
+          <span class="skill-pill">Technical Problem Solving</span>
+          <span class="skill-pill">Structured Documentation</span>
+          <span class="skill-pill">Analytical Thinking</span>
+          <span class="skill-pill">Fast Learning</span>
+          <span class="skill-pill">Adaptability</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
