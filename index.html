@@ -6,108 +6,288 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
+  /* =========================================
+     BASE + THEME
+  ========================================== */
+  :root {
+    --bg-main: #f3f4f9;
+    --bg-card: #ffffff;
+    --bg-academic-gradient: linear-gradient(to bottom right, #00d6ff, #ffffff);
+    --bg-experience-gradient: linear-gradient(to bottom right, #e9e3ff, #ffffff);
+    --bg-skills-gradient: linear-gradient(to bottom right, #eef4ff, #ffffff);
+    --text-main: #111827;
+    --text-muted: #4b5563;
+    --accent: #4f46e5;
+    --accent-soft: #6a5cff;
+  }
 
-  /* ===========================================================
-     BASE STYLING
-  ============================================================ */
+  body.dark-mode {
+    --bg-main: #050816;
+    --bg-card: #0b1120;
+    --bg-academic-gradient: linear-gradient(to bottom right, #0ea5e9, #020617);
+    --bg-experience-gradient: linear-gradient(to bottom right, #1e1b4b, #020617);
+    --bg-skills-gradient: linear-gradient(to bottom right, #111827, #020617);
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --accent: #38bdf8;
+    --accent-soft: #6366f1;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     font-family: Arial, sans-serif;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 16px 40px;
     line-height: 1.6;
-    background-color: #f3f4f9;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    position: relative;
   }
 
-  header {
-    text-align: center;
-    margin-bottom: 40px;
+  main {
+    margin-top: 110px;
   }
 
-  h1 { margin-bottom: 5px; }
-
-  nav a {
-    margin-right: 15px;
-    text-decoration: none;
+  section {
+    margin-bottom: 45px;
   }
 
-  section { margin-bottom: 45px; }
+  a {
+    color: var(--accent);
+  }
 
-  /* ===========================================================
-     VIDEO
-  ============================================================ */
-  .video-container { margin: 20px 0; }
+  /* =========================================
+     BACKGROUND SHAPES
+  ========================================== */
+  .background-shapes {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  }
 
-  iframe, video {
+  .bg-shape {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(45px);
+    opacity: 0.18;
+  }
+
+  .bg-robot-1 {
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle at 30% 30%, #22d3ee, transparent);
+    top: -40px;
+    left: -80px;
+  }
+
+  .bg-robot-2 {
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle at 70% 70%, #6366f1, transparent);
+    bottom: -60px;
+    right: -60px;
+  }
+
+  .bg-robot-3 {
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at 50% 0%, #f97316, transparent);
+    top: 40%;
+    right: 40%;
+  }
+
+  /* =========================================
+     STICKY NAVBAR
+  ========================================== */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1000px;
     width: 100%;
-    max-width: 800px;
-    height: 450px;
+    z-index: 50;
+    padding: 8px 16px 0;
   }
 
-  /* ===========================================================
-     PROJECT CARDS (ACADEMIC)
-  ============================================================ */
-
-  .project-card {
-    background: linear-gradient(to bottom right, #00d6ff, #ffffff);
-    padding: 20px;
-    border-radius: 18px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    border: 1px solid rgba(255,255,255,0.6);
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(15, 23, 42, 0.9);
+    color: #f9fafb;
+    border-radius: 16px;
+    padding: 10px 18px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(12px);
   }
 
-  .project-title {
-    font-size: 1.5rem;
+  .nav-left {
     font-weight: bold;
-    margin-bottom: 5px;
-    color: white;
-    text-shadow: 0 0 8px rgba(0,0,0,0.3);
-  }
-
-  .project-subtitle {
-    font-size: 0.95rem;
-    font-style: italic;
-    margin-bottom: 15px;
-    color: #333;
-  }
-
-  .project-description {
     font-size: 1rem;
-    margin-bottom: 20px;
-    line-height: 1.6;
   }
 
-  .tech-title {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-top: 15px;
-    color: #003366;
+  .nav-links {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 0.95rem;
   }
 
-  .tech-list {
+  .nav-links a {
+    color: #e5e7eb;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 999px;
+  }
+
+  .nav-links a:hover {
+    background: rgba(148, 163, 184, 0.3);
+  }
+
+  .theme-toggle {
+    border: 1px solid rgba(148,163,184,0.5);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    background: rgba(15,23,42,0.8);
+    color: #e5e7eb;
+    cursor: pointer;
+  }
+
+  .theme-toggle:hover {
+    background: rgba(30, 64, 175, 0.9);
+  }
+
+  @media (max-width: 700px) {
+    .nav-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+  }
+
+  /* =========================================
+     HERO (PHOTO + DESCRIPTION)
+  ========================================== */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .hero-photo-wrapper {
+    flex: 0 0 190px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 24px;
+    object-fit: cover;
+    border: 3px solid rgba(148, 163, 184, 0.6);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5);
+  }
+
+  .hero-text {
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .hero-title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .hero-description {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  .hero-pill-row {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 18px;
   }
 
-  .tech-item {
-    background: rgba(255,255,255,0.5);
+  .hero-pill {
     padding: 6px 14px;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 1px solid rgba(0,0,0,0.15);
-    backdrop-filter: blur(4px);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.9);
+    color: #e5e7eb;
+    font-size: 0.85rem;
+    border: 1px solid rgba(148, 163, 184, 0.6);
   }
 
-  /* ===========================================================
-     WORK EXPERIENCE — TIMELINE CARD
-  ============================================================ */
+  body.dark-mode .hero-pill {
+    background: rgba(15, 23, 42, 0.9);
+  }
 
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #f9fafb;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(148,163,184,0.8);
+    color: var(--text-main);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(148,163,184,0.15);
+  }
+
+  body.dark-mode .btn-secondary {
+    color: #e5e7eb;
+  }
+
+  /* =========================================
+     EXPERIENCE TIMELINE
+  ========================================== */
   .experience-card {
-    background: linear-gradient(to bottom right, #e9e3ff, #ffffff);
+    background: var(--bg-experience-gradient);
     padding: 30px;
     border-radius: 24px;
     margin-bottom: 40px;
@@ -123,8 +303,8 @@
   .timeline {
     position: relative;
     padding-left: 30px;
-    border-left: 3px solid #6a5cff;
-    box-shadow: 0 0 10px #6a5cff;
+    border-left: 3px solid var(--accent-soft);
+    box-shadow: 0 0 10px var(--accent-soft);
   }
 
   .timeline-item {
@@ -135,12 +315,12 @@
   .timeline-dot {
     width: 14px;
     height: 14px;
-    background: #6a5cff;
+    background: var(--accent-soft);
     border-radius: 50%;
     position: absolute;
     left: -39px;
     top: 5px;
-    box-shadow: 0 0 12px #6a5cff;
+    box-shadow: 0 0 12px var(--accent-soft);
   }
 
   .timeline-role {
@@ -152,68 +332,155 @@
     font-style: italic;
     font-size: 0.9rem;
     margin-bottom: 10px;
-    color: #333;
+    color: var(--text-muted);
   }
 
-  .timeline-content ul { margin-top: 10px; }
+  .timeline-content ul {
+    margin-top: 10px;
+    padding-left: 18px;
+  }
 
-   /* ====== Skills 2x2 Grid Card ====== */
+  /* =========================================
+     ACADEMIC PROJECT CARDS
+  ========================================== */
+  .project-card {
+    background: var(--bg-academic-gradient);
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.6);
+  }
 
-.skills-wrapper {
-  background: linear-gradient(to bottom right, #eef4ff, #ffffff);
-  padding: 30px;
-  border-radius: 24px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  margin-bottom: 40px;
-}
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
 
-.skills-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 25px;
-}
+  .project-subtitle {
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #e5e7eb;
+  }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
-}
+  .project-description {
+    font-size: 0.98rem;
+    margin-bottom: 20px;
+  }
 
-.skills-group {
-  display: flex;
-  flex-direction: column;
-}
+  .tech-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    color: #0f172a;
+  }
 
-.skills-group-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #003b5c;
-}
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 
-.skills-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+  .tech-item {
+    background: rgba(255,255,255,0.85);
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,0.15);
+    backdrop-filter: blur(4px);
+  }
 
-.skill-pill {
-  background: white;
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border: 1px solid rgba(0,0,0,0.1);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-  white-space: nowrap;
-}
+  body.dark-mode .tech-title {
+    color: #e5e7eb;
+  }
 
-@media (max-width: 650px) {
+  /* =========================================
+     SKILLS 2x2 GRID
+  ========================================== */
+  .skills-wrapper {
+    background: var(--bg-skills-gradient);
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    margin-bottom: 40px;
+  }
+
+  .skills-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
   .skills-grid {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
   }
-}
 
+  .skills-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .skills-group-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #003b5c;
+  }
+
+  body.dark-mode .skills-group-title {
+    color: #bae6fd;
+  }
+
+  .skills-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .skill-pill {
+    background: var(--bg-card);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,0.15);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 650px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* =========================================
+     VIDEOS
+  ========================================== */
+  .video-container { margin: 20px 0; }
+
+  iframe, video {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border-radius: 16px;
+    border: none;
+  }
+
+  /* =========================================
+     CONTACT
+  ========================================== */
+  #contact a {
+    text-decoration: none;
+  }
 
   </style>
 </head>
@@ -221,314 +488,341 @@
 
 
 <body>
+  <div class="background-shapes">
+    <div class="bg-shape bg-robot-1"></div>
+    <div class="bg-shape bg-robot-2"></div>
+    <div class="bg-shape bg-robot-3"></div>
+  </div>
 
-<header>
-  <h1>Ech-chaibi Mohammed</h1>
-  <p>Future Mechatronics Engineer</p>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#work-experience">Work Experience</a>
-    <a href="#academic-projects">Academic Projects</a>
-    <a href="#videos">Videos</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-
-
-<!-- ===========================================================
-     ABOUT
-=========================================================== -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    Ambitious future mechatronics engineer passionate about robotics, automation,
-    embedded systems, and industrial innovation.
-  </p>
-</section>
+  <!-- STICKY NAVBAR -->
+  <header class="site-header">
+    <div class="nav-bar">
+      <div class="nav-left">Ech-chaibi Mohammed</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work-experience">Experience</a>
+        <a href="#academic-projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle">Dark mode</button>
+    </div>
+  </header>
 
 
 
-<!-- ===========================================================
-     WORK EXPERIENCE (TIMELINE STYLE)
-=========================================================== -->
-<section id="work-experience">
-  <div class="experience-card">
-    <h2 class="experience-title">Work Experience</h2>
+  <main>
 
-    <div class="timeline">
+    <!-- HERO WITH PHOTO + DESCRIPTION -->
+    <section id="about" class="hero">
+      <div class="hero-photo-wrapper">
+        <img src="images/profile.jpg" alt="Photo of Ech-chaibi Mohammed" class="hero-photo">
+      </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="timeline-role">Intern – Manufacturing Engineer — Flying Whales, Bordeaux</h3>
-          <p class="timeline-date">Apr 2025 – Sep 2025</p>
-          <ul>
-            <li>Defined helium filling sequence during airship assembly.</li>
-            <li>Participated in industrial process optimization.</li>
-            <li>Supported design & prototyping using 3D modeling.</li>
-          </ul>
+      <div class="hero-text">
+        <h1 class="hero-title">Mechatronics & Automation Student</h1>
+        <p class="hero-subtitle">
+          Passionate about industrial automation, robotics and embedded systems.
+        </p>
+        <p class="hero-description">
+          I design and implement automation solutions that connect <b>robots</b>, <b>PLCs</b> and
+          <b>embedded systems</b> with robust control logic and clear engineering documentation.
+          Interested in modern manufacturing, smart factories and high-reliability systems.
+        </p>
+
+        <div class="hero-pill-row">
+          <span class="hero-pill">Industrial Robotics</span>
+          <span class="hero-pill">PLC & HMI</span>
+          <span class="hero-pill">Embedded Systems</span>
+          <span class="hero-pill">Control & Mechatronics</span>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Contact Me</a>
+          <a href="#academic-projects" class="btn-secondary">View My Projects</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- WORK EXPERIENCE TIMELINE -->
+    <section id="work-experience">
+      <div class="experience-card">
+        <h2 class="experience-title">Work Experience</h2>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-role">Intern – Manufacturing Engineer — Flying Whales, Bordeaux</h3>
+              <p class="timeline-date">Apr 2025 – Sep 2025</p>
+              <ul>
+                <li>Defined the helium filling sequence during airship assembly.</li>
+                <li>Participated in defining and optimizing manufacturing processes.</li>
+                <li>Applied 3D modeling skills to support design and prototyping of industrial components.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-role">Intern – Lean Manager — SITI TEA, Marrakech</h3>
+              <p class="timeline-date">May 2024 – Sep 2024</p>
+              <ul>
+                <li>Industrialized innovative processes to enhance precision and efficiency during assembly.</li>
+                <li>Identified bottlenecks and proposed workflow optimization strategies.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-role">Research & Development Specialist — INGEROP, Lille</h3>
+              <p class="timeline-date">Oct 2023 – Mar 2024</p>
+              <ul>
+                <li>Conducted product lifecycle analyses to identify reuse and recycling opportunities.</li>
+                <li>Developed eco-friendly engineering solutions to enhance resource efficiency in large civil engineering projects.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ACADEMIC PROJECTS -->
+    <section id="academic-projects">
+      <h2>Academic Projects</h2>
+
+      <div class="project-card">
+        <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
+        <p class="project-subtitle">University of Limerick</p>
+        <p class="project-description">
+          A complete automation cell integrating a 6-axis Mitsubishi robot, PLC-controlled hydroponic NFT system
+          and embedded sensor monitoring. The system autonomously handles plant manipulation and performs
+          fine alignment using vision-based correction.
+        </p>
+        <h4 class="tech-title">Keywords</h4>
+        <div class="tech-list">
+          <span class="tech-item">Mitsubishi RT Toolbox</span>
+          <span class="tech-item">Studio 5000</span>
+          <span class="tech-item">Python</span>
+          <span class="tech-item">OpenCV</span>
+          <span class="tech-item">SolidWorks</span>
+          <span class="tech-item">ESP32</span>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="timeline-role">Intern – Lean Manager — SITI TEA, Marrakech</h3>
-          <p class="timeline-date">May 2024 – Sep 2024</p>
-          <ul>
-            <li>Industrialized innovative processes to enhance precision and efficiency.</li>
-            <li>Identified workflow bottlenecks and optimized operations.</li>
-          </ul>
+      <div class="project-card">
+        <h3 class="project-title">HMI + PLC Controlled Rubik's Cube Inspection System</h3>
+        <p class="project-subtitle">University of Limerick</p>
+        <p class="project-description">
+          An automated sequence designed to orient and position a Rubik's Cube for inspection and manipulation using
+          PLC logic, HMI controls and formal engineering documentation aligned with industry standards.
+        </p>
+        <h4 class="tech-title">Keywords</h4>
+        <div class="tech-list">
+          <span class="tech-item">URS / FDS / CSS</span>
+          <span class="tech-item">HMI Design</span>
+          <span class="tech-item">Studio 5000</span>
+          <span class="tech-item">GAMP V</span>
+          <span class="tech-item">IEC 61508</span>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="timeline-role">R&D Specialist — INGEROP, Lille</h3>
-          <p class="timeline-date">Oct 2023 – Mar 2024</p>
-          <ul>
-            <li>Conducted lifecycle analyses for reuse & recycling opportunities.</li>
-            <li>Developed eco-friendly engineering solutions for large projects.</li>
-          </ul>
+      <div class="project-card">
+        <h3 class="project-title">Bottle Orientation Sorting System (Ultrasonic Inspection)</h3>
+        <p class="project-subtitle">University of Limerick</p>
+        <p class="project-description">
+          Automated conveyor-based inspection system that detects bottle orientation (upright vs upside down) using
+          ultrasonic sensing, then actuates a sorting mechanism to reject misaligned bottles while maintaining a live counter.
+        </p>
+        <h4 class="tech-title">Keywords</h4>
+        <div class="tech-list">
+          <span class="tech-item">Ultrasonic Sensor</span>
+          <span class="tech-item">Embedded C/C++</span>
+          <span class="tech-item">Actuation Control</span>
+          <span class="tech-item">Inspection System</span>
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-
-
-<!-- ===========================================================
-     ACADEMIC PROJECTS (CARD BASED)
-=========================================================== -->
-<section id="academic-projects">
-  <h2>Academic Projects</h2>
-
-
-  <!-- PROJECT 1 -->
-  <div class="project-card">
-    <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
-    <p class="project-subtitle">University of Limerick</p>
-    <p class="project-description">
-      A complete automation cell integrating a 6-axis Mitsubishi robot, PLC-controlled hydroponic NFT system,
-      and embedded sensors for autonomous plant handling and vision-based alignment.
-    </p>
-    <h4 class="tech-title">Keywords</h4>
-    <div class="tech-list">
-      <span class="tech-item">Mitsubishi RT Toolbox</span>
-      <span class="tech-item">Studio 5000</span>
-      <span class="tech-item">Python</span>
-      <span class="tech-item">OpenCV</span>
-      <span class="tech-item">SolidWorks</span>
-      <span class="tech-item">ESP32</span>
-    </div>
-  </div>
-
-
-  <!-- PROJECT 2 -->
-  <div class="project-card">
-    <h3 class="project-title">HMI + PLC Controlled Rubik's Cube Inspection System</h3>
-    <p class="project-subtitle">University of Limerick</p>
-    <p class="project-description">
-      Automated sequence for orienting and inspecting a Rubik's Cube using PLC logic, HMI controls,
-      and GAMP-aligned documentation.
-    </p>
-    <h4 class="tech-title">Keywords</h4>
-    <div class="tech-list">
-      <span class="tech-item">URS/FDS/CSS</span>
-      <span class="tech-item">HMI Design</span>
-      <span class="tech-item">Studio 5000</span>
-      <span class="tech-item">GAMP V</span>
-      <span class="tech-item">IEC 61508</span>
-    </div>
-  </div>
-
-
-  <!-- PROJECT 3 -->
-  <div class="project-card">
-    <h3 class="project-title">Bottle Orientation Sorting System (Ultrasonic Inspection)</h3>
-    <p class="project-subtitle">University of Limerick</p>
-    <p class="project-description">
-      Conveyor-based inspection detecting bottle orientation using ultrasonic sensors and actuating a sorting
-      mechanism with live counting.
-    </p>
-    <h4 class="tech-title">Keywords</h4>
-    <div class="tech-list">
-      <span class="tech-item">Ultrasonic Sensor</span>
-      <span class="tech-item">Embedded C/C++</span>
-      <span class="tech-item">Actuation Control</span>
-      <span class="tech-item">Inspection System</span>
-    </div>
-  </div>
-
-
-  <!-- PROJECT 4 -->
-  <div class="project-card">
-    <h3 class="project-title">Self-Balancing Two-Wheel Robot</h3>
-    <p class="project-subtitle">University of Limerick</p>
-    <p class="project-description">
-      A two-wheel inverted pendulum robot using IMU data and closed-loop PID stabilization for dynamic balancing.
-    </p>
-    <h4 class="tech-title">Keywords</h4>
-    <div class="tech-list">
-      <span class="tech-item">PID Control</span>
-      <span class="tech-item">MATLAB/SIMULINK</span>
-      <span class="tech-item">IMU</span>
-      <span class="tech-item">Robotics</span>
-      <span class="tech-item">Stabilization</span>
-    </div>
-  </div>
-
-
-  <!-- PROJECT 5 -->
-  <div class="project-card">
-    <h3 class="project-title">Solar Panel Performance Analysis & Comparison</h3>
-    <p class="project-subtitle">IMT Nord Europe</p>
-    <p class="project-description">
-      Analysed real-world environmental data to compare two solar technologies and evaluate efficiency
-      based on climatic conditions.
-    </p>
-    <h4 class="tech-title">Keywords</h4>
-    <div class="tech-list">
-      <span class="tech-item">Data Analysis</span>
-      <span class="tech-item">Python</span>
-      <span class="tech-item">Solar Energy</span>
-      <span class="tech-item">Energy Modeling</span>
-      <span class="tech-item">Optimization</span>
-    </div>
-  </div>
-
-
-  <!-- PROJECT 6 -->
-  <div class="project-card">
-    <h3 class="project-title">Egg Packaging Automation Factory — Conceptual Automation Project</h3>
-    <p class="project-subtitle">University of Limerick</p>
-    <p class="project-description">
-      Complete conceptual automation design for an egg-packaging line, including ISO 12100 risk analysis
-      and ISA-88 recipe management.
-    </p>
-    <h4 class="tech-title">Keywords</h4>
-    <div class="tech-list">
-      <span class="tech-item">URS/FDS</span>
-      <span class="tech-item">Risk Assessment</span>
-      <span class="tech-item">ISO 12100</span>
-      <span class="tech-item">ISA-88</span>
-      <span class="tech-item">Automation Design</span>
-    </div>
-  </div>
-
-<section id="skills">
-  <div class="skills-wrapper">
-    <h2 class="skills-title">Skills</h2>
-
-    <div class="skills-grid">
-
-      <!-- COLUMN 1 — ROW 1 -->
-      <div class="skills-group">
-        <h3 class="skills-group-title">Core Automation & PLC Skills</h3>
-        <div class="skills-pills">
-          <span class="skill-pill">PLC Programming (Ladder Logic)</span>
-          <span class="skill-pill">Studio 5000 (Allen-Bradley)</span>
-          <span class="skill-pill">Sequences & Interlocks</span>
-          <span class="skill-pill">HMI Development</span>
-          <span class="skill-pill">I/O Configuration</span>
-          <span class="skill-pill">URS / FDS / CSS (GAMP V)</span>
-          <span class="skill-pill">Recipe Design (ISA-88)</span>
-          <span class="skill-pill">Risk Assessment (ISO 12100)</span>
+      <div class="project-card">
+        <h3 class="project-title">Self-Balancing Two-Wheel Robot</h3>
+        <p class="project-subtitle">University of Limerick</p>
+        <p class="project-description">
+          A two-wheel inverted pendulum robot that maintains its balance using IMU data and closed-loop control.
+          Implemented PID stabilization and real-time motor correction for dynamic balancing.
+        </p>
+        <h4 class="tech-title">Keywords</h4>
+        <div class="tech-list">
+          <span class="tech-item">PID Control</span>
+          <span class="tech-item">MATLAB / SIMULINK</span>
+          <span class="tech-item">IMU</span>
+          <span class="tech-item">Robotics</span>
+          <span class="tech-item">Stabilization</span>
         </div>
       </div>
 
-      <!-- COLUMN 2 — ROW 1 -->
-      <div class="skills-group">
-        <h3 class="skills-group-title">Robotics & Mechatronics</h3>
-        <div class="skills-pills">
-          <span class="skill-pill">Mitsubishi Robots (RT Toolbox)</span>
-          <span class="skill-pill">Melfa BASIC</span>
-          <span class="skill-pill">Robot Calibration</span>
-          <span class="skill-pill">Robot Sequence Programming</span>
-          <span class="skill-pill">Robot–PLC Communication</span>
-          <span class="skill-pill">Forward & Inverse Kinematics</span>
-          <span class="skill-pill">Microcontrollers</span>
-          <span class="skill-pill">TCP/IP Communication</span>
-          <span class="skill-pill">Mechanical Design</span>
+      <div class="project-card">
+        <h3 class="project-title">Solar Panel Performance Analysis & Comparison</h3>
+        <p class="project-subtitle">IMT Nord Europe</p>
+        <p class="project-description">
+          Analysed real environmental data to compare the performance of two solar panel technologies and determine
+          the most efficient and cost-effective option for a given location.
+        </p>
+        <h4 class="tech-title">Keywords</h4>
+        <div class="tech-list">
+          <span class="tech-item">Data Analysis</span>
+          <span class="tech-item">Python</span>
+          <span class="tech-item">Solar Energy</span>
+          <span class="tech-item">Energy Modeling</span>
+          <span class="tech-item">Optimization</span>
         </div>
       </div>
 
-      <!-- COLUMN 1 — ROW 2 -->
-      <div class="skills-group">
-        <h3 class="skills-group-title">Industrial Engineering & Process Skills</h3>
-        <div class="skills-pills">
-          <span class="skill-pill">Process Mapping</span>
-          <span class="skill-pill">Workflow Analysis</span>
-          <span class="skill-pill">KPI Dashboarding</span>
-          <span class="skill-pill">Industrialization</span>
-          <span class="skill-pill">Sequence Definition</span>
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">C / C++</span>
-          <span class="skill-pill">MATLAB</span>
-          <span class="skill-pill">Git</span>
+      <div class="project-card">
+        <h3 class="project-title">Egg Packaging Automation Factory — Conceptual Automation Project</h3>
+        <p class="project-subtitle">University of Limerick</p>
+        <p class="project-description">
+          Designed a complete automation concept for an industrial egg-packaging line, including system specification,
+          risk assessment according to ISO 12100:2010 Safety of Machinery and recipe management following ISA-88.
+        </p>
+        <h4 class="tech-title">Keywords</h4>
+        <div class="tech-list">
+          <span class="tech-item">URS / FDS</span>
+          <span class="tech-item">Risk Assessment</span>
+          <span class="tech-item">ISO 12100</span>
+          <span class="tech-item">ISA-88</span>
+          <span class="tech-item">Automation Design</span>
         </div>
       </div>
+    </section>
 
-      <!-- COLUMN 2 — ROW 2 -->
-      <div class="skills-group">
-        <h3 class="skills-group-title">Soft Skills</h3>
-        <div class="skills-pills">
-          <span class="skill-pill">Technical Problem Solving</span>
-          <span class="skill-pill">Structured Documentation</span>
-          <span class="skill-pill">Analytical Thinking</span>
-          <span class="skill-pill">Fast Learning</span>
-          <span class="skill-pill">Adaptability</span>
+
+
+    <!-- SKILLS (2x2 GRID) -->
+    <section id="skills">
+      <div class="skills-wrapper">
+        <h2 class="skills-title">Skills</h2>
+
+        <div class="skills-grid">
+
+          <div class="skills-group">
+            <h3 class="skills-group-title">Core Automation & PLC Skills</h3>
+            <div class="skills-pills">
+              <span class="skill-pill">PLC Programming (Ladder Logic)</span>
+              <span class="skill-pill">Studio 5000 (Allen-Bradley)</span>
+              <span class="skill-pill">Sequences & Interlocks</span>
+              <span class="skill-pill">HMI Development</span>
+              <span class="skill-pill">I/O Configuration</span>
+              <span class="skill-pill">URS / FDS / CSS (GAMP V)</span>
+              <span class="skill-pill">Recipe Design (ISA-88)</span>
+              <span class="skill-pill">Risk Assessment (ISO 12100)</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3 class="skills-group-title">Robotics & Mechatronics</h3>
+            <div class="skills-pills">
+              <span class="skill-pill">Mitsubishi Robots (RT Toolbox)</span>
+              <span class="skill-pill">Melfa BASIC</span>
+              <span class="skill-pill">Robot Calibration</span>
+              <span class="skill-pill">Robot Sequence Programming</span>
+              <span class="skill-pill">Robot–PLC Communication</span>
+              <span class="skill-pill">Forward & Inverse Kinematics</span>
+              <span class="skill-pill">Microcontrollers</span>
+              <span class="skill-pill">TCP/IP Communication</span>
+              <span class="skill-pill">Mechanical Design</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3 class="skills-group-title">Industrial Engineering & Process Skills</h3>
+            <div class="skills-pills">
+              <span class="skill-pill">Process Mapping</span>
+              <span class="skill-pill">Workflow Analysis</span>
+              <span class="skill-pill">KPI Dashboarding</span>
+              <span class="skill-pill">Industrialization</span>
+              <span class="skill-pill">Sequence Definition</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">C / C++</span>
+              <span class="skill-pill">MATLAB</span>
+              <span class="skill-pill">Git</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3 class="skills-group-title">Soft Skills</h3>
+            <div class="skills-pills">
+              <span class="skill-pill">Technical Problem Solving</span>
+              <span class="skill-pill">Structured Documentation</span>
+              <span class="skill-pill">Analytical Thinking</span>
+              <span class="skill-pill">Fast Learning</span>
+              <span class="skill-pill">Adaptability</span>
+            </div>
+          </div>
+
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
 
 
+    <!-- VIDEOS -->
+    <section id="videos">
+      <h2>My Videos</h2>
 
-<!-- ===========================================================
-     VIDEOS
-=========================================================== -->
-<section id="videos">
-  <h2>My Videos</h2>
+      <div class="video-container">
+        <h3>Demo 1 (YouTube)</h3>
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID"
+          title="YouTube video"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-  <div class="video-container">
-    <h3>Demo 1 (YouTube)</h3>
-    <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="YouTube video"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <div class="video-container">
-    <h3>Demo 2 (Local MP4)</h3>
-    <video controls>
-      <source src="videos/demo.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</section>
+      <div class="video-container">
+        <h3>Demo 2 (Local MP4)</h3>
+        <video controls>
+          <source src="videos/demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
 
 
 
-<!-- ===========================================================
-     CONTACT
-=========================================================== -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-  <p>GitHub: <a href="https://github.com/your-username">your-username</a></p>
-</section>
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/your-username">your-username</a></p>
+    </section>
 
+  </main>
+
+
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    function updateLabel() {
+      toggleBtn.textContent = document.body.classList.contains('dark-mode')
+        ? 'Light mode'
+        : 'Dark mode';
+    }
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      updateLabel();
+    });
+    updateLabel();
+  </script>
 
 </body>
 </html>
