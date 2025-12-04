@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Portfolio</title>
+  <title>Ech-chaibi Mohammed - Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <style>
 
-  /* ====== Base Page Styling ====== */
+  /* ===========================================================
+     BASE STYLING
+  ============================================================ */
   body {
     font-family: Arial, sans-serif;
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
     line-height: 1.6;
-    background-color: #f8f8f8;
+    background-color: #f3f4f9;
   }
 
   header {
@@ -21,23 +24,19 @@
     margin-bottom: 40px;
   }
 
-  h1 {
-    margin-bottom: 5px;
-  }
+  h1 { margin-bottom: 5px; }
 
   nav a {
     margin-right: 15px;
     text-decoration: none;
   }
 
-  section {
-    margin-bottom: 40px;
-  }
+  section { margin-bottom: 45px; }
 
-  /* ====== Video Styling ====== */
-  .video-container {
-    margin: 20px 0;
-  }
+  /* ===========================================================
+     VIDEO
+  ============================================================ */
+  .video-container { margin: 20px 0; }
 
   iframe, video {
     width: 100%;
@@ -45,12 +44,14 @@
     height: 450px;
   }
 
+  /* ===========================================================
+     PROJECT CARDS (ACADEMIC)
+  ============================================================ */
 
-  /* ====== Project Card Styling ====== */
   .project-card {
-    background: linear-gradient(to bottom right, #00eaff, #ffffff);
+    background: linear-gradient(to bottom right, #00d6ff, #ffffff);
     padding: 20px;
-    border-radius: 16px;
+    border-radius: 18px;
     margin-bottom: 30px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     border: 1px solid rgba(255,255,255,0.6);
@@ -60,6 +61,8 @@
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 5px;
+    color: white;
+    text-shadow: 0 0 8px rgba(0,0,0,0.3);
   }
 
   .project-subtitle {
@@ -90,7 +93,7 @@
   }
 
   .tech-item {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255,255,255,0.5);
     padding: 6px 14px;
     border-radius: 12px;
     font-size: 0.9rem;
@@ -99,181 +102,307 @@
     backdrop-filter: blur(4px);
   }
 
-</style>
+  /* ===========================================================
+     WORK EXPERIENCE — TIMELINE CARD
+  ============================================================ */
 
+  .experience-card {
+    background: linear-gradient(to bottom right, #e9e3ff, #ffffff);
+    padding: 30px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+
+  .experience-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 3px solid #6a5cff;
+    box-shadow: 0 0 10px #6a5cff;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 35px;
+  }
+
+  .timeline-dot {
+    width: 14px;
+    height: 14px;
+    background: #6a5cff;
+    border-radius: 50%;
+    position: absolute;
+    left: -39px;
+    top: 5px;
+    box-shadow: 0 0 12px #6a5cff;
+  }
+
+  .timeline-role {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .timeline-date {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .timeline-content ul { margin-top: 10px; }
+
+  </style>
 </head>
+
+
+
 <body>
-  <header>
-    <h1>Ech-chaibi Mohammed</h1>
-    <p>Future mechatronics engineer </p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#videos">Videos</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Write a short description about who you are, what you study, and what you are interested in.
-    </p>
-  </section>
+<header>
+  <h1>Ech-chaibi Mohammed</h1>
+  <p>Future Mechatronics Engineer</p>
 
-<section id="Work Experiences">
-  <h2>Work Experience</h2>
-  <ul>
-    <!-- Intern – Manufacturing Engineer -->
-    <li>
-      <strong>Intern – Manufacturing Engineer</strong> — <em>Flying Whales, Bordeaux</em> 
-      <ul>
-        <li>Defined the helium filling sequence during the assembly of the airship.</li>
-        <li>Participated in defining and optimizing industrial manufacturing processes.</li>
-        <li>Applied 3D modeling skills to support design and prototyping of industrial components.</li>
-      </ul>
-    </li>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#work-experience">Work Experience</a>
+    <a href="#academic-projects">Academic Projects</a>
+    <a href="#videos">Videos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <!-- Intern – Lean Manager -->
-    <li>
-      <strong>Intern – Lean Manager</strong> — <em>SITI TEA, Marrakech</em> 
-      <ul>
-        <li>Industrialized innovative processes to enhance precision and efficiency during assembly.</li>
-        <li>Identified bottlenecks and proposed workflow optimization strategies.</li>
-      </ul>
-    </li>
 
-    <!-- R&D Specialist -->
-    <li>
-      <strong>Research & Development Specialist</strong> — <em>INGEROP, Lille</em> 
-      <ul>
-        <li>Conducted product lifecycle analyses to identify reuse and recycling opportunities.</li>
-        <li>Developed eco-friendly engineering solutions to enhance resource efficiency in large civil engineering projects.</li>
-      </ul>
-    </li>
 
-  </ul>
-</section>
-
-  <section id="academic-projects">
-  <h2>Academic Projects</h2>
-  <ul>
-
-  <div class="project-card">
-  <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
-  <p class="project-subtitle">University of Limerick — (12/2025 – Current)</p>
-
-  <p class="project-description">
-    A complete automation cell integrating a 6-axis Mitsubishi robot, PLC-controlled hydroponic NFT system, 
-    and embedded sensor monitoring. The system autonomously handles plant manipulation and performs fine alignment 
-    using vision-based correction.
+<!-- ===========================================================
+     ABOUT
+=========================================================== -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    Ambitious future mechatronics engineer passionate about robotics, automation,
+    embedded systems, and industrial innovation.
   </p>
-
-  <h4 class="tech-title">Technologies Used</h4>
-
-  <div class="tech-list">
-    <!-- Automatically split the tech into separate cards -->
-    <span class="tech-item">Mitsubishi RT Toolbox</span>
-    <span class="tech-item">Studio 5000</span>
-    <span class="tech-item">Python</span>
-    <span class="tech-item">OpenCV</span>
-    <span class="tech-item">SolidWorks</span>
-    <span class="tech-item">ESP32</span>
-  </div>
-</div>
-
-
-    <!-- Academic Project 2 -->
-    <li>
-      <strong>Automation Engineer</strong> — <em>University of Limerick</em> (11/2025 – 12/2025)
-      <ul>
-        <li>Developed an HMI for a Rubik’s Cube inspection machine.</li>
-        <li>Structured and optimized the PLC code for the Rubik’s Cube inspection machine while respecting safety requirements.</li>
-      </ul>
-    </li>
-
-    <!-- Empty Academic Project 3 -->
-    <li>
-      <strong>Project Title</strong> — <em>Institution / Course</em>
-      <ul>
-        <li>Description of what you did…</li>
-        <li>Technologies used…</li>
-        <li>Key results or achievements…</li>
-      </ul>
-    </li>
-
-    <!-- Empty Academic Project 4 -->
-    <li>
-      <strong>Project Title</strong> — <em>Institution / Course</em>
-      <ul>
-        <li>Description of what you did…</li>
-        <li>Technologies used…</li>
-        <li>Key results or achievements…</li>
-      </ul>
-    </li>
-
-    <!-- Empty Academic Project 5 -->
-    <li>
-      <strong>Project Title</strong> — <em>Institution / Course</em>
-      <ul>
-        <li>Description of what you did…</li>
-        <li>Technologies used…</li>
-        <li>Key results or achievements…</li>
-      </ul>
-    </li>
-
-    <!-- Empty Academic Project 6 -->
-    <li>
-      <strong>Project Title</strong> — <em>Institution / Course</em>
-      <ul>
-        <li>Description of what you did…</li>
-        <li>Technologies used…</li>
-        <li>Key results or achievements…</li>
-      </ul>
-    </li>
-
-    <!-- Empty Academic Project 7 -->
-    <li>
-      <strong>Project Title</strong> — <em>Institution / Course</em>
-      <ul>
-        <li>Description of what you did…</li>
-        <li>Technologies used…</li>
-        <li>Key results or achievements…</li>
-      </ul>
-    </li>
-
-  </ul>
 </section>
 
-  <section id="videos">
-    <h2>My Videos</h2>
 
-    <!-- Option 1: Embed a YouTube video -->
-    <div class="video-container">
-      <h3>Demo 1 (YouTube)</h3>
-      <iframe
-        src="https://www.youtube.com/embed/VIDEO_ID"
-        title="YouTube video"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+
+<!-- ===========================================================
+     WORK EXPERIENCE (TIMELINE STYLE)
+=========================================================== -->
+<section id="work-experience">
+  <div class="experience-card">
+    <h2 class="experience-title">Work Experience</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3 class="timeline-role">Intern – Manufacturing Engineer — Flying Whales, Bordeaux</h3>
+          <p class="timeline-date">Apr 2025 – Sep 2025</p>
+          <ul>
+            <li>Defined helium filling sequence during airship assembly.</li>
+            <li>Participated in industrial process optimization.</li>
+            <li>Supported design & prototyping using 3D modeling.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3 class="timeline-role">Intern – Lean Manager — SITI TEA, Marrakech</h3>
+          <p class="timeline-date">May 2024 – Sep 2024</p>
+          <ul>
+            <li>Industrialized innovative processes to enhance precision and efficiency.</li>
+            <li>Identified workflow bottlenecks and optimized operations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3 class="timeline-role">R&D Specialist — INGEROP, Lille</h3>
+          <p class="timeline-date">Oct 2023 – Mar 2024</p>
+          <ul>
+            <li>Conducted lifecycle analyses for reuse & recycling opportunities.</li>
+            <li>Developed eco-friendly engineering solutions for large projects.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
 
-    <!-- Option 2: Local video file (MP4) -->
-    <div class="video-container">
-      <h3>Demo 2 (Local MP4)</h3>
-      <video controls>
-        <source src="videos/demo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+
+
+<!-- ===========================================================
+     ACADEMIC PROJECTS (CARD BASED)
+=========================================================== -->
+<section id="academic-projects">
+  <h2>Academic Projects</h2>
+
+
+  <!-- PROJECT 1 -->
+  <div class="project-card">
+    <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
+    <p class="project-subtitle">University of Limerick</p>
+    <p class="project-description">
+      A complete automation cell integrating a 6-axis Mitsubishi robot, PLC-controlled hydroponic NFT system,
+      and embedded sensors for autonomous plant handling and vision-based alignment.
+    </p>
+    <h4 class="tech-title">Keywords</h4>
+    <div class="tech-list">
+      <span class="tech-item">Mitsubishi RT Toolbox</span>
+      <span class="tech-item">Studio 5000</span>
+      <span class="tech-item">Python</span>
+      <span class="tech-item">OpenCV</span>
+      <span class="tech-item">SolidWorks</span>
+      <span class="tech-item">ESP32</span>
     </div>
-  </section>
+  </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/your-username">your-username</a></p>
-  </section>
+
+  <!-- PROJECT 2 -->
+  <div class="project-card">
+    <h3 class="project-title">HMI + PLC Controlled Rubik's Cube Inspection System</h3>
+    <p class="project-subtitle">University of Limerick</p>
+    <p class="project-description">
+      Automated sequence for orienting and inspecting a Rubik's Cube using PLC logic, HMI controls,
+      and GAMP-aligned documentation.
+    </p>
+    <h4 class="tech-title">Keywords</h4>
+    <div class="tech-list">
+      <span class="tech-item">URS/FDS/CSS</span>
+      <span class="tech-item">HMI Design</span>
+      <span class="tech-item">Studio 5000</span>
+      <span class="tech-item">GAMP V</span>
+      <span class="tech-item">IEC 61508</span>
+    </div>
+  </div>
+
+
+  <!-- PROJECT 3 -->
+  <div class="project-card">
+    <h3 class="project-title">Bottle Orientation Sorting System (Ultrasonic Inspection)</h3>
+    <p class="project-subtitle">University of Limerick</p>
+    <p class="project-description">
+      Conveyor-based inspection detecting bottle orientation using ultrasonic sensors and actuating a sorting
+      mechanism with live counting.
+    </p>
+    <h4 class="tech-title">Keywords</h4>
+    <div class="tech-list">
+      <span class="tech-item">Ultrasonic Sensor</span>
+      <span class="tech-item">Embedded C/C++</span>
+      <span class="tech-item">Actuation Control</span>
+      <span class="tech-item">Inspection System</span>
+    </div>
+  </div>
+
+
+  <!-- PROJECT 4 -->
+  <div class="project-card">
+    <h3 class="project-title">Self-Balancing Two-Wheel Robot</h3>
+    <p class="project-subtitle">University of Limerick</p>
+    <p class="project-description">
+      A two-wheel inverted pendulum robot using IMU data and closed-loop PID stabilization for dynamic balancing.
+    </p>
+    <h4 class="tech-title">Keywords</h4>
+    <div class="tech-list">
+      <span class="tech-item">PID Control</span>
+      <span class="tech-item">MATLAB/SIMULINK</span>
+      <span class="tech-item">IMU</span>
+      <span class="tech-item">Robotics</span>
+      <span class="tech-item">Stabilization</span>
+    </div>
+  </div>
+
+
+  <!-- PROJECT 5 -->
+  <div class="project-card">
+    <h3 class="project-title">Solar Panel Performance Analysis & Comparison</h3>
+    <p class="project-subtitle">IMT Nord Europe</p>
+    <p class="project-description">
+      Analysed real-world environmental data to compare two solar technologies and evaluate efficiency
+      based on climatic conditions.
+    </p>
+    <h4 class="tech-title">Keywords</h4>
+    <div class="tech-list">
+      <span class="tech-item">Data Analysis</span>
+      <span class="tech-item">Python</span>
+      <span class="tech-item">Solar Energy</span>
+      <span class="tech-item">Energy Modeling</span>
+      <span class="tech-item">Optimization</span>
+    </div>
+  </div>
+
+
+  <!-- PROJECT 6 -->
+  <div class="project-card">
+    <h3 class="project-title">Egg Packaging Automation Factory — Conceptual Automation Project</h3>
+    <p class="project-subtitle">University of Limerick</p>
+    <p class="project-description">
+      Complete conceptual automation design for an egg-packaging line, including ISO 12100 risk analysis
+      and ISA-88 recipe management.
+    </p>
+    <h4 class="tech-title">Keywords</h4>
+    <div class="tech-list">
+      <span class="tech-item">URS/FDS</span>
+      <span class="tech-item">Risk Assessment</span>
+      <span class="tech-item">ISO 12100</span>
+      <span class="tech-item">ISA-88</span>
+      <span class="tech-item">Automation Design</span>
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- ===========================================================
+     VIDEOS
+=========================================================== -->
+<section id="videos">
+  <h2>My Videos</h2>
+
+  <div class="video-container">
+    <h3>Demo 1 (YouTube)</h3>
+    <iframe
+      src="https://www.youtube.com/embed/VIDEO_ID"
+      title="YouTube video"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="video-container">
+    <h3>Demo 2 (Local MP4)</h3>
+    <video controls>
+      <source src="videos/demo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+
+
+<!-- ===========================================================
+     CONTACT
+=========================================================== -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+  <p>GitHub: <a href="https://github.com/your-username">your-username</a></p>
+</section>
+
+
 </body>
 </html>
