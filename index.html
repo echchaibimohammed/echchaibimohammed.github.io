@@ -3,38 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <title>My Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    h1 {
-      margin-bottom: 5px;
-    }
-    nav a {
-      margin-right: 15px;
-      text-decoration: none;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    .video-container {
-      margin: 20px 0;
-    }
-    iframe, video {
-      width: 100%;
-      max-width: 800px;
-      height: 450px;
-    }
-  </style>
+
+  /* ====== Base Page Styling ====== */
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    margin-bottom: 5px;
+  }
+
+  nav a {
+    margin-right: 15px;
+    text-decoration: none;
+  }
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  /* ====== Video Styling ====== */
+  .video-container {
+    margin: 20px 0;
+  }
+
+  iframe, video {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+  }
+
+
+  /* ====== Project Card Styling ====== */
+  .project-card {
+    background: linear-gradient(to bottom right, #00eaff, #ffffff);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.6);
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .project-subtitle {
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .project-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .tech-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    color: #003366;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tech-item {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,0.15);
+    backdrop-filter: blur(4px);
+  }
+
+</style>
+
 </head>
 <body>
   <header>
@@ -83,6 +149,96 @@
       <ul>
         <li>Conducted product lifecycle analyses to identify reuse and recycling opportunities.</li>
         <li>Developed eco-friendly engineering solutions to enhance resource efficiency in large civil engineering projects.</li>
+      </ul>
+    </li>
+
+  </ul>
+</section>
+
+  <section id="academic-projects">
+  <h2>Academic Projects</h2>
+  <ul>
+
+  <div class="project-card">
+  <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
+  <p class="project-subtitle">University of Limerick — (12/2025 – Current)</p>
+
+  <p class="project-description">
+    A complete automation cell integrating a 6-axis Mitsubishi robot, PLC-controlled hydroponic NFT system, 
+    and embedded sensor monitoring. The system autonomously handles plant manipulation and performs fine alignment 
+    using vision-based correction.
+  </p>
+
+  <h4 class="tech-title">Technologies Used</h4>
+
+  <div class="tech-list">
+    <!-- Automatically split the tech into separate cards -->
+    <span class="tech-item">Mitsubishi RT Toolbox</span>
+    <span class="tech-item">Studio 5000</span>
+    <span class="tech-item">Python</span>
+    <span class="tech-item">OpenCV</span>
+    <span class="tech-item">SolidWorks</span>
+    <span class="tech-item">ESP32</span>
+  </div>
+</div>
+
+
+    <!-- Academic Project 2 -->
+    <li>
+      <strong>Automation Engineer</strong> — <em>University of Limerick</em> (11/2025 – 12/2025)
+      <ul>
+        <li>Developed an HMI for a Rubik’s Cube inspection machine.</li>
+        <li>Structured and optimized the PLC code for the Rubik’s Cube inspection machine while respecting safety requirements.</li>
+      </ul>
+    </li>
+
+    <!-- Empty Academic Project 3 -->
+    <li>
+      <strong>Project Title</strong> — <em>Institution / Course</em>
+      <ul>
+        <li>Description of what you did…</li>
+        <li>Technologies used…</li>
+        <li>Key results or achievements…</li>
+      </ul>
+    </li>
+
+    <!-- Empty Academic Project 4 -->
+    <li>
+      <strong>Project Title</strong> — <em>Institution / Course</em>
+      <ul>
+        <li>Description of what you did…</li>
+        <li>Technologies used…</li>
+        <li>Key results or achievements…</li>
+      </ul>
+    </li>
+
+    <!-- Empty Academic Project 5 -->
+    <li>
+      <strong>Project Title</strong> — <em>Institution / Course</em>
+      <ul>
+        <li>Description of what you did…</li>
+        <li>Technologies used…</li>
+        <li>Key results or achievements…</li>
+      </ul>
+    </li>
+
+    <!-- Empty Academic Project 6 -->
+    <li>
+      <strong>Project Title</strong> — <em>Institution / Course</em>
+      <ul>
+        <li>Description of what you did…</li>
+        <li>Technologies used…</li>
+        <li>Key results or achievements…</li>
+      </ul>
+    </li>
+
+    <!-- Empty Academic Project 7 -->
+    <li>
+      <strong>Project Title</strong> — <em>Institution / Course</em>
+      <ul>
+        <li>Description of what you did…</li>
+        <li>Technologies used…</li>
+        <li>Key results or achievements…</li>
       </ul>
     </li>
 
