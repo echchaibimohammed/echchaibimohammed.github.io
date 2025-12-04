@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      margin-bottom: 5px;
+    }
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .video-container {
+      margin: 20px 0;
+    }
+    iframe, video {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Name</h1>
+    <p>Student / Developer / Whatever you want to put</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#videos">Videos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Write a short description about who you are, what you study, and what you are interested in.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Project 1:</strong> Short description…</li>
+      <li><strong>Project 2:</strong> Short description…</li>
+    </ul>
+  </section>
+
+  <section id="videos">
+    <h2>My Videos</h2>
+
+    <!-- Option 1: Embed a YouTube video -->
+    <div class="video-container">
+      <h3>Demo 1 (YouTube)</h3>
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        title="YouTube video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Option 2: Local video file (MP4) -->
+    <div class="video-container">
+      <h3>Demo 2 (Local MP4)</h3>
+      <video controls>
+        <source src="videos/demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/your-username">your-username</a></p>
+  </section>
+</body>
+</html>
