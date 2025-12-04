@@ -157,6 +157,47 @@
 
   .timeline-content ul { margin-top: 10px; }
 
+    /* ====== Skills Section ====== */
+
+.skills-card {
+  background: linear-gradient(to bottom right, #dff7ff, #ffffff);
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.skills-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #003b5c;
+}
+
+.skills-group-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #0077b6;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-item {
+  background: rgba(255,255,255,0.7);
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  font-size: 1rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+
   </style>
 </head>
 
@@ -364,6 +405,22 @@
   </div>
 
 </section>
+  <section id="skills">
+  <div class="skills-card">
+    <h2 class="skills-title">Skills</h2>
+
+    <h3 class="skills-group-title">Core Automation & PLC Skills</h3>
+
+    <div class="skills-list">
+      <div class="skill-item">PLC Programming: Ladder Logic</div>
+      <div class="skill-item">Studio 5000 (Allen-Bradley): sequences, interlocks, HMI, I/O</div>
+      <div class="skill-item">URS / FDS / CSS Documentation (GAMP V lifecycle)</div>
+      <div class="skill-item">Recipe Design (ISA-88 concepts)</div>
+      <div class="skill-item">Risk Assessment (ISO 12100)</div>
+    </div>
+  </div>
+</section>
+
 
 
 
