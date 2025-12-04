@@ -53,6 +53,14 @@
   50%  { box-shadow: 0 0 25px rgba(99,102,241,0.8); }
   100% { box-shadow: 0 0 10px rgba(99,102,241,0.4); }
 }
+    header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.7); /* matches your dark mode colors */
+}
+
 
   /* =========================================
      BASE + THEME
@@ -559,7 +567,7 @@
       </div>
 
       <div class="hero-text">
-        <h1 class="hero-title">Mechatronics & Automation Student</h1>
+       <h1 id="typing-title" class="hero-title"></h1>
         <p class="hero-subtitle">
           Passionate about industrial automation, robotics and embedded systems.
         </p>
@@ -863,6 +871,19 @@
     });
     updateLabel();
   </script>
+
+  <script>
+const text = "Ech-chaibi Mohammed – Mechatronics & Automation Student";
+let idx = 0;
+
+function type() {
+  document.getElementById("typing-title").textContent = text.slice(0, idx);
+  idx++;
+  if (idx <= text.length) setTimeout(type, 50);
+}
+type();
+</script>
+
 
 </body>
 </html>
