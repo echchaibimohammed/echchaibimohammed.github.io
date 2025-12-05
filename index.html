@@ -922,6 +922,21 @@
     }
     type();
   </script>
+<script>
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".nav-bar");
 
+  // How far the user has scrolled (0 to 250px)
+  const maxScroll = 250;
+  const scroll = Math.min(window.scrollY, maxScroll);
+
+  // Opacity goes from 1 → 0.25 as you scroll
+  const opacity = 1 - (scroll / maxScroll) * 0.75;
+
+  nav.style.background = `rgba(15, 23, 42, ${opacity})`;
+  nav.style.backdropFilter = `blur(${8 + scroll/40}px)`; // subtle blur increase
+});
+</script>
+  
 </body>
 </html>
