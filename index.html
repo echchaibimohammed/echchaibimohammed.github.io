@@ -6,6 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
+    .video-button {
+  background: #38bdf8;            /* brighter light blue */
+  color: #0f172a;                 /* dark text for contrast */
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.4);
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.video-button:hover {
+  background: #7dd3fc;
+  color: #0c111b;
+  transform: translateY(-2px);
+}
+
     .education-card {
   background: linear-gradient(to bottom right, #1e1b4b, #0f172a);
   padding: 30px;
@@ -766,7 +785,6 @@
 
       <!-- Academic Project 2 -->
       <div class="project-card">
-        <a href="#video-rubik" class="btn-video-scroll">▶ Watch Video</a>
         <h3 class="project-title">HMI + PLC Controlled Rubik's Cube Inspection System</h3>
         <p class="project-subtitle">University of Limerick</p>
         <p class="project-description">
@@ -780,6 +798,7 @@
           <span class="tech-item">Studio 5000</span>
           <span class="tech-item">GAMP V</span>
           <span class="tech-item">IEC 61508</span>
+            <a href="#video-rubik" class="video-button">▶ Watch Video</a>
         </div>
       </div>
 
@@ -803,7 +822,6 @@
       
       <!-- Academic Project 3 -->
       <div class="project-card">
-        <a href="#video-bottle" class="btn-video-scroll">▶ Watch Video</a>
         <h3 class="project-title">Bottle Orientation Sorting System (Ultrasonic Inspection)</h3>
         <p class="project-subtitle">University of Limerick</p>
         <p class="project-description">
@@ -817,6 +835,7 @@
           <span class="tech-item">Embedded C/C++</span>
           <span class="tech-item">Actuation Control</span>
           <span class="tech-item">Inspection System</span>
+       <a href="#video-bottle" class="video-button">▶ Watch Video</a>
         </div>
       </div>
 
