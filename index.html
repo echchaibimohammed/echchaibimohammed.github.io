@@ -6,507 +6,560 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
-   html {
-  scroll-behavior: smooth;
-}
-
-/* Fade-in on scroll */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Hover-lift for project cards */
-.project-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-}
-
-/* Glowing pills */
-@keyframes glowPulse {
-  0%   { box-shadow: 0 0 4px rgba(99,102,241,0.3); }
-  50%  { box-shadow: 0 0 12px rgba(99,102,241,0.7); }
-  100% { box-shadow: 0 0 4px rgba(99,102,241,0.3); }
-}
-.skill-pill, .tech-item { animation: glowPulse 3s infinite ease-in-out; }
-
-/* Glowing profile photo */
-.hero-photo {
-  animation: photoGlow 4s infinite ease-in-out;
-}
-@keyframes photoGlow {
-  0%   { box-shadow: 0 0 10px rgba(99,102,241,0.4); }
-  50%  { box-shadow: 0 0 25px rgba(99,102,241,0.8); }
-  100% { box-shadow: 0 0 10px rgba(99,102,241,0.4); }
-}
-
-/* =========================================
-   REMOVE OLD HEADER (THIS FIXES YOUR BUG)
-========================================= */
-/* ❌ DELETE THE OLD HEADER BLOCK COMPLETELY */
-/* header {...} */
-
-/* =========================================
-   GLOBAL THEME
-========================================= */
-:root {
-  --bg-main: #f3f4f9;
-  --bg-card: #ffffff;
-  --text-main: #111827;
-  --text-muted: #4b5563;
-  --accent: #4f46e5;
-  --accent-soft: #6a5cff;
-}
-
-body.dark-mode {
-  --bg-main: #050816;
-  --bg-card: #0b1120;
-  --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
-  --accent: #38bdf8;
-  --accent-soft: #6366f1;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 16px 40px;
-  line-height: 1.6;
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  position: relative;
-}
-
-main { margin-top: 120px; }
-
-/* =========================================
-   BACKGROUND SHAPES (WORKING NOW)
-========================================= */
-.background-shapes {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-}
-.bg-shape {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(45px);
-  opacity: 0.18;
-}
-.bg-robot-1 {
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle at 30% 30%, #22d3ee, transparent);
-  top: -40px;
-  left: -80px;
-}
-.bg-robot-2 {
-  width: 280px;
-  height: 280px;
-  background: radial-gradient(circle at 70% 70%, #6366f1, transparent);
-  bottom: -60px;
-  right: -60px;
-}
-.bg-robot-3 {
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle at 50% 0%, #f97316, transparent);
-  top: 40%;
-  right: 40%;
-}
-
-/* =========================================
-   FIXED GLASSMORPHISM NAVBAR (NEW)
-========================================= */
-.site-header {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 1000px;
-  padding: 0;
-  z-index: 9999;
-  background: transparent; /* important */
-}
-
-.nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 12px 22px;
-  border-radius: 999px;
-
-  background: rgba(15,23,42,0.55);
-  background-image: linear-gradient(
-    120deg,
-    rgba(56,189,248,0.35),
-    rgba(129,140,248,0.6),
-    rgba(56,189,248,0.35)
-  );
-  background-size: 300% 300%;
-
-  border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(14px);
-
-  animation: navGradientMove 16s ease infinite,
-             navGlow 4s ease-in-out infinite;
-}
-
-/* moving gradient */
-@keyframes navGradientMove {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* glowing border */
-@keyframes navGlow {
-  0% { box-shadow: 0 0 10px rgba(129,140,248,0.2); }
-  50% { box-shadow: 0 0 22px rgba(129,140,248,0.8); }
-  100% { box-shadow: 0 0 10px rgba(129,140,248,0.2); }
-}
-
-.nav-links {
-  display: flex;
-  gap: 16px;
-}
-.nav-links a {
-  text-decoration: none;
-  color: #f1f5f9;
-  padding: 6px 10px;
-  border-radius: 999px;
-  transition: 0.2s;
-}
-.nav-links a:hover {
-  background: rgba(255,255,255,0.18);
-  color: #dbeafe;
-}
-
-.theme-toggle {
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.4);
-  background: rgba(15,23,42,0.5);
-  color: white;
-}
-.theme-toggle:hover {
-  background: rgba(99,102,241,0.8);
-}
     /* =========================================
-   HERO SECTION
-========================================= */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  align-items: center;
-}
+       GLOBAL + THEME
+    ========================================== */
+    html {
+      scroll-behavior: smooth;
+    }
 
-.hero-photo-wrapper {
-  flex: 0 0 190px;
-  display: flex;
-  justify-content: center;
-}
+    :root {
+      --bg-main: #f3f4f9;
+      --bg-card: #ffffff;
+      --bg-academic-gradient: linear-gradient(to bottom right, #00d6ff, #ffffff);
+      --bg-experience-gradient: linear-gradient(to bottom right, #e9e3ff, #ffffff);
+      --bg-skills-gradient: linear-gradient(to bottom right, #eef4ff, #ffffff);
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --accent: #4f46e5;
+      --accent-soft: #6a5cff;
+    }
 
-.hero-photo {
-  width: 180px;
-  height: 180px;
-  border-radius: 24px;
-  object-fit: cover;
-  border: 3px solid rgba(148, 163, 184, 0.6);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5);
-}
+    body.dark-mode {
+      --bg-main: #050816;
+      --bg-card: #0b1120;
+      --bg-academic-gradient: linear-gradient(to bottom right, #0ea5e9, #020617);
+      --bg-experience-gradient: linear-gradient(to bottom right, #1e1b4b, #020617);
+      --bg-skills-gradient: linear-gradient(to bottom right, #111827, #020617);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: #6366f1;
+    }
 
-.hero-text {
-  flex: 1;
-  min-width: 260px;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.hero-title {
-  font-size: 1.9rem;
-  font-weight: 800;
-  margin-bottom: 6px;
-}
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+      line-height: 1.6;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      position: relative;
+    }
 
-.hero-subtitle {
-  font-size: 1rem;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-}
+    main {
+      margin-top: 120px;
+    }
 
-.hero-description {
-  font-size: 0.98rem;
-  color: var(--text-muted);
-  margin-bottom: 18px;
-}
+    section {
+      margin-bottom: 45px;
+    }
 
-.hero-pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 18px;
-}
+    a {
+      color: var(--accent);
+    }
 
-.hero-pill {
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  color: #e5e7eb;
-  font-size: 0.85rem;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-}
+    /* =========================================
+       BACKGROUND SHAPES
+    ========================================== */
+    .background-shapes {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
 
-body.dark-mode .hero-pill {
-  background: rgba(15, 23, 42, 0.9);
-}
+    .bg-shape {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(45px);
+      opacity: 0.18;
+    }
 
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+    .bg-robot-1 {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle at 30% 30%, #22d3ee, transparent);
+      top: -40px;
+      left: -80px;
+    }
 
-.btn-primary,
-.btn-secondary {
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 0.9rem;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+    .bg-robot-2 {
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle at 70% 70%, #6366f1, transparent);
+      bottom: -60px;
+      right: -60px;
+    }
 
-.btn-primary {
-  background: var(--accent);
-  color: #f9fafb;
-}
+    .bg-robot-3 {
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle at 50% 0%, #f97316, transparent);
+      top: 40%;
+      right: 40%;
+    }
 
-.btn-secondary {
-  background: transparent;
-  border: 1px solid rgba(148,163,184,0.8);
-  color: var(--text-main);
-}
+    /* =========================================
+       NAVBAR (glassmorphism + animated gradient)
+    ========================================== */
+    .site-header {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 1000px;
+      width: 100%;
+      z-index: 9999;
+    }
 
-.btn-secondary:hover {
-  background: rgba(148,163,184,0.15);
-}
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 22px;
+      border-radius: 999px;
 
-body.dark-mode .btn-secondary {
-  color: #e5e7eb;
-}
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
 
-/* =========================================
-   EXPERIENCE TIMELINE
-========================================= */
-.experience-card {
-  background: var(--bg-experience-gradient);
-  padding: 30px;
-  border-radius: 24px;
-  margin-bottom: 40px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-}
+      background-image: linear-gradient(
+        120deg,
+        rgba(56, 189, 248, 0.35),
+        rgba(129, 140, 248, 0.7),
+        rgba(56, 189, 248, 0.35)
+      );
+      background-size: 300% 300%;
+      animation: navGradientMove 16s ease infinite, navGlow 4s ease-in-out infinite;
+      color: #f9fafb;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.6);
+    }
 
-.experience-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 25px;
-}
+    @keyframes navGradientMove {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-.timeline {
-  position: relative;
-  padding-left: 30px;
-  border-left: 3px solid var(--accent-soft);
-  box-shadow: 0 0 10px var(--accent-soft);
-}
+    @keyframes navGlow {
+      0%   { box-shadow: 0 10px 24px rgba(15, 23, 42, 0.7), 0 0 8px rgba(129, 140, 248, 0.3); }
+      50%  { box-shadow: 0 14px 32px rgba(15, 23, 42, 0.9), 0 0 16px rgba(129, 140, 248, 0.8); }
+      100% { box-shadow: 0 10px 24px rgba(15, 23, 42, 0.7), 0 0 8px rgba(129, 140, 248, 0.3); }
+    }
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 35px;
-}
+    .nav-left {
+      font-weight: bold;
+      font-size: 1rem;
+    }
 
-.timeline-dot {
-  width: 14px;
-  height: 14px;
-  background: var(--accent-soft);
-  border-radius: 50%;
-  position: absolute;
-  left: -39px;
-  top: 5px;
-  box-shadow: 0 0 12px var(--accent-soft);
-}
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 0.95rem;
+    }
 
-.timeline-role {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
+    .nav-links a {
+      color: #e5e7eb;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
 
-.timeline-date {
-  font-style: italic;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  color: var(--text-muted);
-}
+    .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.6);
+      color: #bfdbfe;
+    }
 
-.timeline-content ul {
-  margin-top: 10px;
-  padding-left: 18px;
-}
+    .theme-toggle {
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      background: rgba(15,23,42,0.8);
+      color: #e5e7eb;
+      cursor: pointer;
+    }
 
-/* =========================================
-   ACADEMIC PROJECTS
-========================================= */
-.project-card {
-  background: linear-gradient(to bottom right, #1e1b4b, #0f172a);
-  padding: 20px;
-  border-radius: 18px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.1);
-}
+    .theme-toggle:hover {
+      background: rgba(37, 99, 235, 0.9);
+      box-shadow: 0 0 12px rgba(129, 140, 248, 0.8);
+      transform: translateY(-1px);
+    }
 
-.project-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(0,0,0,0.4);
-}
+    @media (max-width: 700px) {
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
 
-.project-subtitle {
-  font-size: 0.95rem;
-  font-style: italic;
-  margin-bottom: 15px;
-  color: #cbd5e1;
-}
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+    }
 
-.project-description {
-  font-size: 0.98rem;
-  margin-bottom: 20px;
-  color: #e2e8f0;
-}
+    /* =========================================
+       HERO SECTION
+    ========================================== */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
 
-.tech-title {
-  font-size: 1.05rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  margin-top: 15px;
-  color: #a5b4fc;
-}
+    .hero-photo-wrapper {
+      flex: 0 0 190px;
+      display: flex;
+      justify-content: center;
+    }
 
-.tech-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+    .hero-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 24px;
+      object-fit: cover;
+      border: 3px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5);
+      animation: photoGlow 4s infinite ease-in-out;
+    }
 
-.tech-list .tech-item {
-  background: rgba(255,255,255,0.15);
-  padding: 6px 14px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(6px);
-  color: #f1f5f9;
-}
+    @keyframes photoGlow {
+      0%   { box-shadow: 0 0 10px rgba(99,102,241,0.4); }
+      50%  { box-shadow: 0 0 25px rgba(99,102,241,0.8); }
+      100% { box-shadow: 0 0 10px rgba(99,102,241,0.4); }
+    }
 
-/* =========================================
-   SKILLS 2×2 GRID
-========================================= */
-.skills-wrapper {
-  background: var(--bg-skills-gradient);
-  padding: 30px;
-  border-radius: 24px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  margin-bottom: 40px;
-}
+    .hero-text {
+      flex: 1;
+      min-width: 260px;
+    }
 
-.skills-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 25px;
-}
+    .hero-title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
-}
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
 
-.skills-group {
-  display: flex;
-  flex-direction: column;
-}
+    .hero-description {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
 
-.skills-group-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #003b5c;
-}
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
 
-body.dark-mode .skills-group-title {
-  color: #bae6fd;
-}
+    .hero-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
 
-.skills-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+    body.dark-mode .hero-pill {
+      background: rgba(15, 23, 42, 0.9);
+    }
 
-.skill-pill {
-  background: var(--bg-card);
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border: 1px solid rgba(0,0,0,0.15);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-  white-space: nowrap;
-}
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-@media (max-width: 650px) {
-  .skills-grid { grid-template-columns: 1fr; }
-}
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* =========================================
-   VIDEOS
-========================================= */
-.video-container { margin: 20px 0; }
+    .btn-primary {
+      background: var(--accent);
+      color: #f9fafb;
+    }
 
-iframe, video {
-  width: 100%;
-  max-width: 800px;
-  height: 450px;
-  border-radius: 16px;
-  border: none;
-}
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(148,163,184,0.8);
+      color: var(--text-main);
+    }
 
-/* =========================================
-   CONTACT
-========================================= */
-#contact a {
-  text-decoration: none;
-}
+    .btn-secondary:hover {
+      background: rgba(148,163,184,0.15);
+    }
 
+    body.dark-mode .btn-secondary {
+      color: #e5e7eb;
+    }
 
+    /* =========================================
+       FADE-IN ANIMATION
+    ========================================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
 
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================================
+       HOVER LIFT FOR PROJECT CARDS
+    ========================================== */
+    .project-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+
+    /* Glowing pills */
+    @keyframes glowPulse {
+      0%   { box-shadow: 0 0 4px rgba(99,102,241,0.3); }
+      50%  { box-shadow: 0 0 12px rgba(99,102,241,0.7); }
+      100% { box-shadow: 0 0 4px rgba(99,102,241,0.3); }
+    }
+
+    .skill-pill,
+    .tech-item {
+      animation: glowPulse 3s infinite ease-in-out;
+    }
+
+    /* =========================================
+       EXPERIENCE TIMELINE
+    ========================================== */
+    .experience-card {
+      background: var(--bg-experience-gradient);
+      padding: 30px;
+      border-radius: 24px;
+      margin-bottom: 40px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .experience-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      border-left: 3px solid var(--accent-soft);
+      box-shadow: 0 0 10px var(--accent-soft);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 35px;
+    }
+
+    .timeline-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--accent-soft);
+      border-radius: 50%;
+      position: absolute;
+      left: -39px;
+      top: 5px;
+      box-shadow: 0 0 12px var(--accent-soft);
+    }
+
+    .timeline-role {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .timeline-date {
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      color: var(--text-muted);
+    }
+
+    .timeline-content ul {
+      margin-top: 10px;
+      padding-left: 18px;
+    }
+
+    /* =========================================
+       ACADEMIC PROJECT CARD STYLE
+    ========================================== */
+    .project-card {
+      background: linear-gradient(to bottom right, #1e1b4b, #0f172a);
+      padding: 20px;
+      border-radius: 18px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(0,0,0,0.4);
+    }
+
+    .project-subtitle {
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 15px;
+      color: #cbd5e1;
+    }
+
+    .project-description {
+      font-size: 0.98rem;
+      margin-bottom: 20px;
+      color: #e2e8f0;
+    }
+
+    .tech-title {
+      font-size: 1.05rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      margin-top: 15px;
+      color: #a5b4fc;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tech-item {
+      background: rgba(255,255,255,0.15);
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(6px);
+      color: #f1f5f9;
+    }
+
+    /* =========================================
+       SKILLS 2x2 GRID
+    ========================================== */
+    .skills-wrapper {
+      background: var(--bg-skills-gradient);
+      padding: 30px;
+      border-radius: 24px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      margin-bottom: 40px;
+    }
+
+    .skills-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+
+    .skills-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skills-group-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #003b5c;
+    }
+
+    body.dark-mode .skills-group-title {
+      color: #bae6fd;
+    }
+
+    .skills-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-pill {
+      background: var(--bg-card);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 1px solid rgba(0,0,0,0.15);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 650px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================================
+       VIDEOS
+    ========================================== */
+    .video-container { margin: 20px 0; }
+
+    iframe, video {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border-radius: 16px;
+      border: none;
+    }
+
+    /* =========================================
+       CONTACT
+    ========================================== */
+    #contact a {
+      text-decoration: none;
+    }
+
+  </style>
+</head>
 
 <body>
   <div class="background-shapes">
@@ -531,8 +584,6 @@ iframe, video {
     </div>
   </header>
 
-
-
   <main>
 
     <!-- HERO WITH PHOTO + DESCRIPTION -->
@@ -542,14 +593,17 @@ iframe, video {
       </div>
 
       <div class="hero-text">
-       <h1 id="typing-title" class="hero-title"></h1>
+        <h1 id="typing-title" class="hero-title"></h1>
         <p class="hero-subtitle">
           Passionate about industrial automation, robotics and embedded systems.
         </p>
         <p class="hero-description">
           I design and implement automation solutions that connect <b>robots</b>, <b>PLCs</b> and
           <b>embedded systems</b> with robust control logic and clear engineering documentation.
-          Interested in modern manufacturing, smart factories and high-reliability systems.
+          My projects range from hydroponic robotic cells to self-balancing robots and industrial inspection
+          systems. I enjoy building reliable, maintainable systems that respect safety standards and
+          good engineering practices (URS/FDS, ISA-88, ISO&nbsp;12100, IEC&nbsp;61508). Interested in
+          modern manufacturing, smart factories and high-reliability automation.
         </p>
 
         <div class="hero-pill-row">
@@ -567,8 +621,6 @@ iframe, video {
       </div>
     </section>
 
-
-
     <!-- WORK EXPERIENCE TIMELINE -->
     <section id="work-experience" class="fade-in">
       <div class="experience-card">
@@ -582,8 +634,8 @@ iframe, video {
               <h3 class="timeline-role">Intern – Manufacturing Engineer — Flying Whales, Bordeaux</h3>
               <p class="timeline-date">Apr 2025 – Sep 2025</p>
               <ul>
-                <li>Defined the helium filling sequence during airship assembly.</li>
-                <li>Participated in defining and optimizing manufacturing processes.</li>
+                <li>Defined the helium filling sequence during the assembly of the airship.</li>
+                <li>Participated in defining and optimizing industrial manufacturing processes.</li>
                 <li>Applied 3D modeling skills to support design and prototyping of industrial components.</li>
               </ul>
             </div>
@@ -617,20 +669,20 @@ iframe, video {
       </div>
     </section>
 
-
-
     <!-- ACADEMIC PROJECTS -->
     <section id="academic-projects" class="fade-in">
       <h2>Academic Projects</h2>
+
+      <!-- Academic Project 1 -->
       <div class="project-card">
         <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
-        <p class="project-subtitle">University of Limerick</p>
+        <p class="project-subtitle">University of Limerick (12/2025 – Current)</p>
         <p class="project-description">
-          A complete automation cell integrating a 6-axis Mitsubishi robot, PLC-controlled hydroponic NFT system
-          and embedded sensor monitoring. The system autonomously handles plant manipulation and performs
-          fine alignment using vision-based correction.
+          A complete automation cell integrating a 6-axis Mitsubishi robot, PLC-controlled hydroponic NFT system,
+          and embedded sensor monitoring. The system autonomously handles plant manipulation and performs fine alignment
+          using vision-based correction.
         </p>
-        <h4 class="tech-title">Keywords</h4>
+        <h4 class="tech-title">Tech / Keywords</h4>
         <div class="tech-list">
           <span class="tech-item">Mitsubishi RT Toolbox</span>
           <span class="tech-item">Studio 5000</span>
@@ -641,11 +693,12 @@ iframe, video {
         </div>
       </div>
 
+      <!-- Academic Project 2 -->
       <div class="project-card">
         <h3 class="project-title">HMI + PLC Controlled Rubik's Cube Inspection System</h3>
         <p class="project-subtitle">University of Limerick</p>
         <p class="project-description">
-          An automated sequence designed to orient and position a Rubik's Cube for inspection and manipulation using
+          An automated sequence designed to orient and position a Rubik's cube for inspection and manipulation using
           PLC logic, HMI controls and formal engineering documentation aligned with industry standards.
         </p>
         <h4 class="tech-title">Keywords</h4>
@@ -658,12 +711,14 @@ iframe, video {
         </div>
       </div>
 
+      <!-- Academic Project 3 -->
       <div class="project-card">
         <h3 class="project-title">Bottle Orientation Sorting System (Ultrasonic Inspection)</h3>
         <p class="project-subtitle">University of Limerick</p>
         <p class="project-description">
           Automated conveyor-based inspection system that detects bottle orientation (upright vs upside down) using
-          ultrasonic sensing, then actuates a sorting mechanism to reject misaligned bottles while maintaining a live counter.
+          ultrasonic sensing, then actuates a sorting mechanism to reject misaligned bottles while maintaining a live counter
+          of processed units.
         </p>
         <h4 class="tech-title">Keywords</h4>
         <div class="tech-list">
@@ -674,6 +729,7 @@ iframe, video {
         </div>
       </div>
 
+      <!-- Academic Project 4 -->
       <div class="project-card">
         <h3 class="project-title">Self-Balancing Two-Wheel Robot</h3>
         <p class="project-subtitle">University of Limerick</p>
@@ -691,6 +747,7 @@ iframe, video {
         </div>
       </div>
 
+      <!-- Academic Project 5 -->
       <div class="project-card">
         <h3 class="project-title">Solar Panel Performance Analysis & Comparison</h3>
         <p class="project-subtitle">IMT Nord Europe</p>
@@ -708,6 +765,7 @@ iframe, video {
         </div>
       </div>
 
+      <!-- Academic Project 6 -->
       <div class="project-card">
         <h3 class="project-title">Egg Packaging Automation Factory — Conceptual Automation Project</h3>
         <p class="project-subtitle">University of Limerick</p>
@@ -726,8 +784,6 @@ iframe, video {
       </div>
     </section>
 
-
-
     <!-- SKILLS (2x2 GRID) -->
     <section id="skills" class="fade-in">
       <div class="skills-wrapper">
@@ -735,6 +791,7 @@ iframe, video {
 
         <div class="skills-grid">
 
+          <!-- Group 1 -->
           <div class="skills-group">
             <h3 class="skills-group-title">Core Automation & PLC Skills</h3>
             <div class="skills-pills">
@@ -749,6 +806,7 @@ iframe, video {
             </div>
           </div>
 
+          <!-- Group 2 -->
           <div class="skills-group">
             <h3 class="skills-group-title">Robotics & Mechatronics</h3>
             <div class="skills-pills">
@@ -764,6 +822,7 @@ iframe, video {
             </div>
           </div>
 
+          <!-- Group 3 -->
           <div class="skills-group">
             <h3 class="skills-group-title">Industrial Engineering & Process Skills</h3>
             <div class="skills-pills">
@@ -779,6 +838,7 @@ iframe, video {
             </div>
           </div>
 
+          <!-- Group 4 -->
           <div class="skills-group">
             <h3 class="skills-group-title">Soft Skills</h3>
             <div class="skills-pills">
@@ -794,12 +854,11 @@ iframe, video {
       </div>
     </section>
 
-
-
     <!-- VIDEOS -->
     <section id="videos">
       <h2>My Videos</h2>
 
+      <!-- YouTube placeholder -->
       <div class="video-container">
         <h3>Demo 1 (YouTube)</h3>
         <iframe
@@ -809,6 +868,7 @@ iframe, video {
         </iframe>
       </div>
 
+      <!-- Local MP4 placeholder -->
       <div class="video-container">
         <h3>Demo 2 (Local MP4)</h3>
         <video controls>
@@ -818,21 +878,17 @@ iframe, video {
       </div>
     </section>
 
-
-
     <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:echchaibimohammed04@gmail.com">echchaibimohammed04@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/your-username">Momokbir</a></p>
+      <p>GitHub: <a href="https://github.com/Momokbir" target="_blank">Momokbir</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/mohammed-ech-chaibi-62a1091ab/" target="_blank">My LinkedIn Profile</a></p>
-
     </section>
 
   </main>
 
-
-
+  <!-- DARK MODE SCRIPT -->
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
     function updateLabel() {
@@ -847,18 +903,18 @@ iframe, video {
     updateLabel();
   </script>
 
+  <!-- TYPING EFFECT SCRIPT -->
   <script>
-const text = "Ech-chaibi Mohammed – Mechatronics & Automation Student";
-let idx = 0;
+    const text = "Ech-chaibi Mohammed – Mechatronics & Automation Student";
+    let idx = 0;
 
-function type() {
-  document.getElementById("typing-title").textContent = text.slice(0, idx);
-  idx++;
-  if (idx <= text.length) setTimeout(type, 50);
-}
-type();
-</script>
-
+    function type() {
+      document.getElementById("typing-title").textContent = text.slice(0, idx);
+      idx++;
+      if (idx <= text.length) setTimeout(type, 50);
+    }
+    type();
+  </script>
 
 </body>
 </html>
