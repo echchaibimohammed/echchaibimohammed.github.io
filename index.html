@@ -6,6 +6,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
+    .education-card {
+  background: linear-gradient(to bottom right, #1e1b4b, #0f172a);
+  padding: 30px;
+  border-radius: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.education-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.edu-timeline {
+  position: relative;
+  padding-left: 30px;
+  border-left: 3px solid var(--accent-soft);
+  animation: eduLineShift 10s infinite alternate ease-in-out;
+}
+
+@keyframes eduLineShift {
+  0%   { border-color: #38bdf8; }
+  50%  { border-color: #a78bfa; }
+  100% { border-color: #f472b6; }
+}
+
+.edu-item {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.edu-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  left: -39px;
+  top: 5px;
+  background: var(--accent-soft);
+  box-shadow: 0 0 12px var(--accent-soft);
+  animation: eduDotShift 10s infinite alternate ease-in-out;
+}
+
+@keyframes eduDotShift {
+  0%   { background: #38bdf8; }
+  50%  { background: #a78bfa; }
+  100% { background: #f472b6; }
+}
+
+.edu-degree {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.edu-date {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #cbd5e1;
+}
+
+.edu-content ul {
+  margin-top: 10px;
+  padding-left: 18px;
+  color: #e2e8f0;
+}
+
     /* =========================================
        GLOBAL + THEME
     ========================================== */
@@ -638,17 +709,7 @@
               </ul>
             </div>
           </div>
-            <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3 class="timeline-role">Research & Development Specialist — INGEROP, Lille</h3>
-              <p class="timeline-date">Oct 2023 – Mar 2024</p>
-              <ul>
-                <li>Conducted product lifecycle analyses to identify reuse and recycling opportunities.</li>
-                <li>Developed eco-friendly engineering solutions to enhance resource efficiency in large civil engineering projects.</li>
-              </ul>
-            </div>
-          </div>
+          
 
           <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -661,8 +722,17 @@
               </ul>
             </div>
           </div>
-
-        
+            <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-role">Research & Development Specialist — INGEROP, Lille</h3>
+              <p class="timeline-date">Oct 2023 – Mar 2024</p>
+              <ul>
+                <li>Conducted product lifecycle analyses to identify reuse and recycling opportunities.</li>
+                <li>Developed eco-friendly engineering solutions to enhance resource efficiency in large civil engineering projects.</li>
+              </ul>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -884,8 +954,99 @@
     style="border-radius: 16px;">
   </iframe>
 </div>
-
+      
     </section>
+<section id="education" class="fade-in">
+  <div class="education-card">
+    <h2 class="education-title">Education</h2>
+
+    <div class="edu-timeline">
+
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div class="edu-content">
+          <h3 class="edu-degree">MEng – Mechatronics Engineering</h3>
+          <p class="edu-date"> University of Limerick-Limerick,Ireland</p>
+          <ul>
+            <li>Coursework in robotics,automation,control systems, ambedded systems, and machine vision.</li>
+            <li>Practical work with Mitsubishi industrial robots, PLCs, sensors and system integration.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div class="edu-content">
+          <h3 class="edu-degree">MEng- Industrial Engineering</h3>
+          <p class="edu-date"> IMT Nord Europe- Lille,France</p>
+          <ul>
+            <li>Focus on industrialisation, manufacturing systems, process optimisation and 3D modeling.</li>
+            <li>Coursework in mechanical design, operations research, systems engineering and project management.</li>
+            <li>Hands-on projects in automation, production flow analysis and prototyping.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div class="edu-content">
+          <h3 class="edu-degree">Preparatory Classes</h3>
+          <p class="edu-date"> IBN TIMIYA-Marrakech, Morocco</p>
+          <ul>
+            <li>Two-year intensive preparatory programme focused on advanced mathematics,physics,and engineering fundamentals .</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+    
+  <section id="certifications" class="fade-in">
+  <h2>Certifications</h2>
+
+  <div class="project-card">
+    <h3 class="project-title">Green Belt Certficate</h3>
+    <p class="project-subtitle">7-SHAPES</p>
+    <p class="project-description">
+     The Six Sigma Green Belt certification validates competency in structured problem-solving, 
+      statistical analysis, and process optimization. It demonstrates the ability to lead improvement projects
+      using DMAIC methodology, reduce process variation, identify root causes, and implement sustainable corrective 
+      actions using Lean and Six Sigma tools.
+    </p>
+    <h4 class="tech-title">Key Topics</h4>
+    <div class="tech-list">
+      <span class="tech-item">Process Optimization</span>
+      <span class="tech-item">Statistical Process Control</span>
+      <span class="tech-item">Root Cause Analysis</span>
+      <span class="tech-item">KPIs & Data-Driven Decisions</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <h3 class="project-title">MOOC – Project Management Certification</h3>
+    <p class="project-subtitle">MOOC</p>
+    <p class="project-description">
+      A certification covering the fundamentals of project management, including project planning,
+      risk management, scheduling, stakeholder communication, and resource allocation. The course emphasizes 
+      structured project execution using international frameworks such as PMI/PMBOK and introduces tools for effective
+      team coordination and project monitoring.
+    </p>
+    <h4 class="tech-title">Key Topics</h4>
+    <div class="tech-list">
+      <span class="tech-item">Scheduling (Gantt / PERT)</span>
+      <span class="tech-item">Project Monitoring</span>
+      <span class="tech-item">Resource Allocation</span>
+      <span class="tech-item">Project Planning</span>
+      <span class="tech-item">Task Prioritization</span>
+    </div>
+  </div>
+</section>
+
 
     <!-- CONTACT -->
     <section id="contact">
