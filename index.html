@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
+    .white-bullets li {
+  color: white !important;
+  margin-bottom: 8px; /* optional: makes bullets look nicer */
+  line-height: 1.4;   /* optional: improves readability */
+}
+
     .video-button {
   background: #38bdf8;            /* brighter light blue */
   color: #0f172a;                 /* dark text for contrast */
@@ -840,25 +846,28 @@
       </div>
 
       <!-- Academic Project 4 -->
-      <div class="project-card">
-        <h3 class="project-title">Self-Balancing Two-Wheel Robot</h3>
-        <p class="project-subtitle">University of Limerick</p>
-        <p class="project-description">
-          <li>Designed and tuned a reaction-wheel self-balancing system using Arduino and Simulink, integrating IMU and encoder feedback for precise real-time control.</li>
-                <li>Solved major instability issues through PD tuning, bias correction, wheel-speed damping, and fixed-step timing, ultimately achieving long-duration, highly stable balancing performance.</li>
-                <li>Reached a rare ultimate equilibrium state where the system remained upright even with the controller disabled, demonstrating deep understanding of dynamic stability and system behavior.</li>
-        </p>
-        <h4 class="tech-title">Keywords</h4>
-        <div class="tech-list">
-          <span class="tech-item">PID Control</span>
-          <span class="tech-item">MATLAB / SIMULINK</span>
-          <span class="tech-item">IMU</span>
-          <span class="tech-item">Robotics</span>
-          <span class="tech-item">Stabilization</span>
-            <a href="#video-selfbalancing" class="video-button">▶ Watch Video</a>
-          </div>
-        </div>
-      </div>
+<div class="project-card"> 
+  <h3 class="project-title">Self-Balancing Two-Wheel Robot</h3>
+  <p class="project-subtitle">University of Limerick</p>
+
+  <!-- Bullet points wrapped in a reusable class -->
+  <ul class="white-bullets project-description">
+    <li>Designed and tuned a reaction-wheel self-balancing system using Arduino and Simulink, integrating IMU and encoder feedback for precise real-time control.</li>
+    <li>Solved major instability issues through PD tuning, bias correction, wheel-speed damping, and fixed-step timing, ultimately achieving long-duration, highly stable balancing performance.</li>
+    <li>Reached a rare ultimate equilibrium state where the system remained upright even with the controller disabled, demonstrating deep understanding of dynamic stability and system behavior.</li>
+  </ul>
+
+  <h4 class="tech-title">Keywords</h4>
+  <div class="tech-list">
+    <span class="tech-item">PID Control</span>
+    <span class="tech-item">MATLAB / SIMULINK</span>
+    <span class="tech-item">IMU</span>
+    <span class="tech-item">Robotics</span>
+    <span class="tech-item">Stabilization</span>
+    <a href="#video-selfbalancing" class="video-button">▶ Watch Video</a>
+  </div>
+</div>
+
 
       <!-- Academic Project 5 -->
       <div class="project-card">
