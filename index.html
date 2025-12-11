@@ -730,9 +730,11 @@
               <h3 class="timeline-role">Intern – Manufacturing Engineer — Flying Whales, Bordeaux,France</h3>
               <p class="timeline-date">Apr 2025 – Sep 2025</p>
               <ul>
-                <li>Defined the full helium filling sequence during the assembly of the airship.</li>
-                <li>Participated in defining and optimizing industrial manufacturing processes.</li>
-                <li>Applied 3D modeling skills to support design and prototyping of industrial components.</li>
+                <li>Calculated buoyancy margins throughout 50 assembly stages of the LCA60T airship, ensuring ≥2-ton lift at every step and guaranteeing safe structural progression.</li>
+                <li>Modeled the airship’s evolving mass and determined precise helium quantities per stage, respecting tilt constraints, center-of-gravity constraints and inter-cell volume differences across 14 helium cells</li>
+                <li>Developed mathematical formulations to compute helium height inside each cell from integrated volume, enabling automated monitoring of height imbalance during inflation.</li>
+                <li>Created a complete helium integration sequence (what volume in which cell at each stage) and simulated helium behavior in CATIA 3DEXPERIENCE to validate assembly stability.</li>
+                <li>Introduced a new method to compare height differences between cells, improving detection of imbalance and enhancing operational safety.</li>
               </ul>
             </div>
           </div>
@@ -744,8 +746,11 @@
               <h3 class="timeline-role">Intern – Lean Manager — SITI TEA, Marrakech,Morocco</h3>
               <p class="timeline-date">May 2024 – Sep 2024</p>
               <ul>
-                <li>Industrialized innovative processes to enhance precision and efficiency during assembly.</li>
-                <li>Identified bottlenecks and proposed workflow optimization strategies.</li>
+                <li>Analyzed the full tea-bag packaging process using Ishikawa diagrams and root-cause analysis to identify inefficiencies and quality deviations.</li>
+                <li>Investigated performance data from the doseur (mass-control system), diagnosed PID parameter faults, and re-tuned the controller to stabilize dosing accuracy.</li>
+               <li> Proposed automation enhancements and process control improvements to reduce manual intervention, stabilize throughput, and increase consistency.</li>
+                <li>Achieved an average 3.3% reduction in product loss, despite variability across tea types (chamomile, black tea, mixed blends with different physical properties).</li>
+                <li>Overcame challenges related to heterogeneous material behavior inside blends by iteratively testing parameter sensitivities and adjusting machine calibration accordingly.</li>
               </ul>
             </div>
           </div>
@@ -755,8 +760,10 @@
               <h3 class="timeline-role">Research & Development Specialist — INGEROP, Lille,France</h3>
               <p class="timeline-date">Oct 2023 – Mar 2024</p>
               <ul>
-                <li>Conducted product lifecycle analyses to identify reuse and recycling opportunities.</li>
-                <li>Developed eco-friendly engineering solutions to enhance resource efficiency in large civil engineering projects.</li>
+                <li>Conducted material lifecycle assessments to identify substitution opportunities that reduce cost while maintaining essential structural and mechanical properties.</li>
+                <li>Researched regional and recycled materials, proposing alternative solutions for the port of Dunkerque with improved sustainability and economic performance.</li>
+                 <li>Compared material properties using analytical charts and technical benchmarks, supporting decision-making within the engineering team.</li>
+                <li>Collaborated within the R&D group using shared digital platforms to coordinate research, consolidate datasets, and document engineering criteria for material selection.</li>
               </ul>
             </div>
           </div>
@@ -774,17 +781,20 @@
         <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
         <p class="project-subtitle">University of Limerick (Final year project)</p>
         <p class="project-description">
-          A complete automation cell integrating a 6-axis Mitsubishi robot, PLC-controlled hydroponic NFT system,
-          and embedded sensor monitoring. The system autonomously handles plant manipulation and performs fine alignment
-          using vision-based correction.
-        </p>
+          <ul class="white-bullets project-description">
+    <li> Designing a fully autonomous harvesting cell integrating a Mitsubishi 6-axis industrail robot 'RV-6S-S12', embedded sensing, and vision-based plant recognition.</li>
+    <li> Implementing OpenCV for plant readiness detection and alignment correction, enabling reliable pick-and-place operations.</li>
+    <li> Building the full hydroponic NFT monitoring system with ESP32, providing sensor feedback and system status to a dedicated interface.</li>
+    <li> Developing an end-to-end workflow where the robot identifies the ready-to-harvest plant, cuts the roots, places it into a box, and prepares the slot for a new seedling. </li>
+  </ul>
         <h4 class="tech-title"> Keywords</h4>
         <div class="tech-list">
           <span class="tech-item">Mitsubishi RT Toolbox</span>
           <span class="tech-item">Studio 5000</span>
-          <span class="tech-item">Python</span>
+          <span class="tech-item">Vision based alignement</span>
           <span class="tech-item">OpenCV</span>
           <span class="tech-item">SolidWorks</span>
+           <span class="tech-item">Robotic Manipulation</span>
           <span class="tech-item">ESP32</span>
         </div>
       </div>
@@ -794,16 +804,22 @@
         <h3 class="project-title">HMI + PLC Controlled Rubik's Cube Inspection System</h3>
         <p class="project-subtitle">University of Limerick</p>
         <p class="project-description">
-          An automated sequence designed to orient and position a Rubik's cube for inspection and manipulation using
-          PLC logic, HMI controls and formal engineering documentation aligned with industry standards.
-        </p>
+            <ul class="white-bullets project-description">
+    <li>Programmed a Studio 5000 PLC sequence to orient a Rubik’s Cube using pneumatic actuators, capturing images at four orientations and flipping the cube using dual-axis manipulation.</li>
+    <li> Designed HMI screens for monitoring, operator interaction, and inspection workflow visualization, ensuring intuitive system navigation .</li>
+    <li> Implemented full safety handling—E-stop, pause/resume, interlocks, and real-time alarm reporting—aligned with IEC 61508 functional safety requirements.</li>
+    <li> Developed full engineering documentation—including FDS, DDS, and test plans—structured according to industrial automation and GAMP 5 validation standards.</li>
+    <li> Delivered a fully integrated PLC–HMI inspection workflow capable of precise mechanical actuation, repeatable orientation control, and clear operator feedback. </li>
+  </ul>
         <h4 class="tech-title">Keywords</h4>
         <div class="tech-list">
           <span class="tech-item">FDS / DDS</span>
           <span class="tech-item">HMI Design</span>
           <span class="tech-item">Studio 5000</span>
+          <span class="tech-item">Orientation Control</span>
           <span class="tech-item">GAMP V</span>
           <span class="tech-item">IEC 61508</span>
+          <span class="tech-item">GAMP V</span>
             <a href="#video-rubik" class="video-button">▶ Watch Video</a>
         </div>
       </div>
@@ -813,16 +829,21 @@
         <h3 class="project-title">Egg Packaging Automation Factory — Conceptual Automation Project</h3>
         <p class="project-subtitle">University of Limerick</p>
         <p class="project-description">
-          Designed a complete automation concept for an industrial egg-packaging line, including system specification,
-          risk assessment according to ISO 12100:2010 Safety of Machinery and recipe management following ISA-88.
-        </p>
+        <ul class="white-bullets project-description">
+    <li>Designed the complete automation architecture for an industrial egg-packaging line, including cell layout, machine selection, and full process definition.</li>
+    <li> Performed a full ISO 12100–compliant risk assessment and developed detailed system workflows and SFC-based recipes aligned with ISA-88 standards.</li>
+    <li>Produced URS/FDS documentation and modeled the automation cell in 3D to validate equipment fit, process flow, and operational feasibility. </li>
+    <li> Solved integration challenges related to matching machine capabilities, ensuring safety compliance, and defining modular, recipe-driven batch logic. </li>
+  </ul>
         <h4 class="tech-title">Keywords</h4>
         <div class="tech-list">
           <span class="tech-item">URS / FDS</span>
           <span class="tech-item">Risk Assessment</span>
           <span class="tech-item">ISO 12100</span>
           <span class="tech-item">ISA-88</span>
+          <span class="tech-item">SFC Recipes</span>
           <span class="tech-item">Automation Design</span>
+          <span class="tech-item">System Layout</span>
         </div>
       </div>
       
@@ -831,16 +852,19 @@
         <h3 class="project-title">Bottle Orientation Sorting System (Ultrasonic Inspection)</h3>
         <p class="project-subtitle">University of Limerick</p>
         <p class="project-description">
-          Automated conveyor-based inspection system that detects bottle orientation (upright vs upside down) using
-          ultrasonic sensing, then actuates a sorting mechanism to reject misaligned bottles while maintaining a live counter
-          of processed units.
-        </p>
+         <ul class="white-bullets project-description">
+    <li>Developed an Arduino-based ultrasonic inspection system to classify bottle orientation (upright vs. down) using dual-sensor logic.</li>
+    <li>Designed and programmed the full sorting sequence, triggering the reject mechanism based on real-time sensor feedback. </li>
+    <li> Implemented live production counting on a 7-segment display and integrated operator controls such as system stop, reset, and status indication.</li>
+    <li> Delivered a compact, reliable inspection unit capable of maintaining continuous throughput while rejecting misaligned units. </li>
+  </ul>
         <h4 class="tech-title">Keywords</h4>
         <div class="tech-list">
           <span class="tech-item">Ultrasonic Sensor</span>
           <span class="tech-item">Embedded C/C++</span>
           <span class="tech-item">Actuation Control</span>
           <span class="tech-item">Inspection System</span>
+          <span class="tech-item">Sorting Mechanism</span>
        <a href="#video-bottle" class="video-button">▶ Watch Video</a>
         </div>
       </div>
@@ -856,7 +880,6 @@
     <li>Solved major instability issues through PD tuning, bias correction, wheel-speed damping, and fixed-step timing, ultimately achieving long-duration, highly stable balancing performance.</li>
     <li>Reached a rare ultimate equilibrium state where the system remained upright even with the controller disabled, demonstrating deep understanding of dynamic stability and system behavior.</li>
   </ul>
-
   <h4 class="tech-title">Keywords</h4>
   <div class="tech-list">
     <span class="tech-item">PID Control</span>
@@ -874,9 +897,12 @@
         <h3 class="project-title">Solar Panel Performance Analysis & Comparison</h3>
         <p class="project-subtitle">IMT Nord Europe</p>
         <p class="project-description">
-          Analysed real environmental data to compare the performance of two solar panel technologies and determine
-          the most efficient and cost-effective option for a given location.
-        </p>
+           <ul class="white-bullets project-description">
+    <li>Modeled and compared photovoltaic and thermal solar panels in Simscape using real irradiance data from Douai and Sète. </li>
+    <li>Simulated daily energy production, thermal tank temperature evolution, and cost/performance metrics for both technologies. </li>
+    <li>Evaluated efficiency, cost per watt, and environmental sensitivity to identify the optimal technology for different climatic conditions. </li>
+    <li>Concluded that each panel type performs best under specific scenarios, highlighting the need for context-dependent selection in solar system design. </li>
+  </ul>
         <h4 class="tech-title">Keywords</h4>
         <div class="tech-list">
           <span class="tech-item">Data Analysis</span>
