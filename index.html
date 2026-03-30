@@ -652,7 +652,74 @@
     #contact a {
       text-decoration: none;
     }
+/* ================= MOBILE VERSION ================= */
 
+@media (max-width: 768px) {
+  .site-header {
+    top: 8px;
+    width: calc(100% - 16px);
+    max-width: none;
+  }
+
+  .nav-bar {
+    padding: 10px 14px;
+    border-radius: 20px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    padding: 6px 10px;
+  }
+
+  main {
+    margin-top: 150px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-pill-row,
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  iframe,
+  video {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-left,
+  .theme-toggle {
+    text-align: center;
+    align-self: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+
+  main {
+    margin-top: 185px;
+  }
+}
   </style>
 </head>
 
@@ -699,7 +766,7 @@
           <b>PLCs</b>, <b>embedded controllers</b> and <b>machine vision </b>. I design structured control logic,integrate robots,
           develop HMI/PLC interfaces and create full engineering documentation (URS,FDS,DDS) aligned with GAMP V. I enjoy solving practical engineering
           problems, building automated processes, developing robot trajectories,integrating sensors, and designing systems that actually work. Driven
-          by smart manufacturing, robotics and system integration I'm preparing for a career in high-reliability automation and industrial innovation.
+          by smart manufacturing, robotics and system integration.I'm preparing for a career in high-reliability automation and industrial innovation.
         </p>
 
         <div class="hero-pill-row">
