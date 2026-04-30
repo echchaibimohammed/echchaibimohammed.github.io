@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,12 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
+.render-button {
+  background: #facc15;
+  color: #0f172a;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.4);
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.render-button:hover {
+  background: #fde047;
+  transform: translateY(-2px);
+}
+    
     .white-bullets li {
   color: white !important;
   margin-bottom: 8px; /* optional: makes bullets look nicer */
   line-height: 1.4;   /* optional: improves readability */
 }
 
+    .render-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.render-gallery img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .render-gallery {
+    grid-template-columns: 1fr;
+  }
+}
     .video-button {
   background: #38bdf8;            /* brighter light blue */
   color: #0f172a;                 /* dark text for contrast */
@@ -968,29 +1004,31 @@
   </div>
 </div>
 
-
-      <!-- Academic Project 5 -->
       <div class="project-card">
-        <h3 class="project-title">Solar Panel Performance Analysis & Comparison</h3>
-        <p class="project-subtitle">IMT Nord Europe</p>
-        <p class="project-description">
-           <ul class="white-bullets project-description">
-    <li>Modeled and compared photovoltaic and thermal solar panels in Simscape using real irradiance data from Douai and Sète. </li>
-    <li>Simulated daily energy production, thermal tank temperature evolution, and cost/performance metrics for both technologies. </li>
-    <li>Evaluated efficiency, cost per watt, and environmental sensitivity to identify the optimal technology for different climatic conditions. </li>
-    <li>Concluded that each panel type performs best under specific scenarios, highlighting the need for context-dependent selection in solar system design. </li>
+  <h3 class="project-title">Industrial Robotic Sorting Cell — SolidWorks Design & Animation</h3>
+  <p class="project-subtitle">Industrial Cell Design Project</p>
+
+  <ul class="project-description">
+    <li>Designed a complete industrial robotic cell in SolidWorks with a conveyor-fed layout where a 6-axis KUKA robot separates two part configurations into dedicated trays.</li>
+    <li>Created the full mechanical layout using weldments and sheet metal structures, including acrylic safety panels around the robot workspace.</li>
+    <li>Designed the adapter plate and custom end-effector fingers for a Schunk pneumatic gripper to enable reliable pick-and-place handling.</li>
+    <li>Developed a full process animation with defined intermediate robot positions to avoid collisions and demonstrate safe part transfer sequences.</li>
+    <li>Produced realistic rendering images in SolidWorks Visualize to present the industrial cell layout, robot motion, and safety enclosure concept.</li>
   </ul>
-        <h4 class="tech-title">Keywords</h4>
-        <div class="tech-list">
-          <span class="tech-item">Data Analysis</span>
-          <span class="tech-item">MATLAB/SIMSCAPE</span>
-          <span class="tech-item">Solar Energy</span>
-          <span class="tech-item">Energy Modeling</span>
-          <span class="tech-item">Optimization</span>
-        </div>
-      </div>
 
+  <h4 class="tech-title">Keywords</h4>
+  <div class="tech-list">
+    <span class="tech-item">SolidWorks</span>
+    <span class="tech-item">SolidWorks Visualize</span>
+    <span class="tech-item">Sheet Metal Design</span>
+    <span class="tech-item">Weldments</span>
+    <span class="tech-item">Robot Cell Layout</span>
 
+    <a href="#video-industrial-cell" class="video-button">▶ Watch Video</a>
+    <a href="#render-industrial-cell" class="render-button">🖼 See Renderings</a>
+  </div>
+</div>
+      
     </section>
 
     <!-- SKILLS (2x2 GRID) -->
@@ -1085,8 +1123,6 @@
     </p>
   </div>
 
-
-  
   <div class="video-container" id="video-conveyor">
     <h3>Conveyor Bottle Sorting System</h3>
     <video controls>
@@ -1129,6 +1165,29 @@
   </p>
 </div>
 
+  <div class="video-container" id="video-industrial-cell">
+  <h3>Industrial Robotic Sorting Cell — SolidWorks Animation</h3>
+  <video controls>
+    <source src="https://drive.google.com/uc?export=download&id=12Dv5I8ZHY8GWiM7noNEdcdUUOjr39Yuc" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <p style="margin-top:10px;">
+    If the video doesn't load, 
+    <a href="https://drive.google.com/file/d/12Dv5I8ZHY8GWiM7noNEdcdUUOjr39Yuc/view?usp=sharing" target="_blank">
+      click here to open it in Google Drive.
+    </a>
+  </p>
+</div>
+
+  <section id="render-industrial-cell" class="fade-in">
+  <h2>Industrial Cell Rendering Images</h2>
+
+  <div class="render-gallery">
+    <img src="images/industrial-cell-render-1.jpg" alt="Industrial robotic cell rendering 1">
+    <img src="images/industrial-cell-render-2.jpg" alt="Industrial robotic cell rendering 2">
+  </div>
+</section>
 
 </section>
 
