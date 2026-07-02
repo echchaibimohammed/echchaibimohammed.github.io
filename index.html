@@ -877,26 +877,29 @@
     <section id="academic-projects" class="fade-in">
       <h2>Academic Projects</h2>
 
-      <!-- Academic Project 1 -->
-      <div class="project-card">
-        <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
-        <p class="project-subtitle">University of Limerick (Final year project)</p>
-        <p class="project-description">
-          <ul class="white-bullets project-description">
-    <li> Designed and implemented a fully autonomous harvesting cell integrating a Mitsubishi 6-axis robot (RV-6S-S12), embedded sensing, and vision-based plant recognition to identify, harvest, and replace plants within an end-to-end automated workflow.</li>
-    <li> Implementing OpenCV for plant readiness detection and alignment correction, enabling reliable pick-and-place operations.</li>
-    <li> Building the full hydroponic NFT monitoring system, providing sensor feedback and system status to a dedicated interface.</li>
-    <li> Designed the control system in accordance with IEC 61508 principles, implementing safety functions such as emergency stop logic, interlocking mechanisms, and safe robot–PLC communication to ensure reliable and fail-safe operation. </li>
+<!-- Academic Project 1 -->
+<div class="project-card">
+  <h3 class="project-title">Hydroponic Robotic Harvesting System</h3>
+  <p class="project-subtitle">University of Limerick (Final year project)</p>
+
+  <ul class="white-bullets project-description">
+    <li>Commissioned and integrated a complete industrial robotic harvesting cell combining a Mitsubishi RV-6S robot, GuardLogix safety PLC, CompactLogix controller, FactoryTalk HMI, machine vision, TCP/IP communication, pneumatics, and industrial I/O.</li>
+    <li>Designed the robot control architecture in MELFA BASIC IV, developing a PLC-driven command listener over TCP/IP sockets with synchronized hardware I/O handshaking.</li>
+    <li>Engineered the robot cell safety system according to ISO 10218, integrating dual-channel emergency stops, safety door interlocks, GuardLogix safety functions, pneumatic dump valve control, and HMI alarm handling.</li>
+    <li>Designed and integrated a custom harvesting end-effector combining pneumatic grippers, cutting shears, camera mounting, solenoid valves, and 3D-printed mechanical components.</li>
+    <li>Developed an edge vision subsystem using Raspberry Pi and OpenCV to analyse lettuce maturity through green-pixel segmentation and trigger harvesting commands via PLC communication.</li>
   </ul>
-        <h4 class="tech-title"> Keywords</h4>
-        <div class="tech-list">
-          <span class="tech-item">Mitsubishi RT Toolbox</span>
-          <span class="tech-item">Studio 5000</span>
-          <span class="tech-item">OpenCV</span>
-          <span class="tech-item">Robotic Manipulation</span>
-          <span class="tech-item">System Integration</span>
-        </div>
-      </div>
+
+  <h4 class="tech-title">Keywords</h4>
+  <div class="tech-list">
+    <span class="tech-item">Mitsubishi RT Toolbox</span>
+    <span class="tech-item">Studio 5000</span>
+    <span class="tech-item">ISO 10218</span>
+    <span class="tech-item">Machine Vision</span>
+    <span class="tech-item">System Integration</span>
+    <a href="#video-hydroponic" class="video-button">▶ Watch Video</a>
+  </div>
+</div>
 
       <!-- Academic Project 2 -->
       <div class="project-card">
